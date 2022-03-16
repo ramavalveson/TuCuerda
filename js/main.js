@@ -1,4 +1,6 @@
+/*******************************************************************/
 /******************** Products creator function ********************/
+/*******************************************************************/
 
 function Product(id, model, brand, category, mainMaterial, price, stock, quantity) {
     this.id = id;
@@ -13,7 +15,9 @@ function Product(id, model, brand, category, mainMaterial, price, stock, quantit
 
 
 
+/************************************************************/
 /******************** Products (Objects) ********************/
+/************************************************************/
 
 const product1 = new Product ('1', 'sg', 'gibson', 'eléctrica', 'mahogany', 1599, 8, 0);
 const product2 = new Product ('2', 'les paul', 'gibson', 'eléctrica', 'mahogany', 2699, 10, 0);
@@ -24,91 +28,105 @@ const product6 = new Product ('6', 'jem7vp', 'ibanez', 'eléctrica', 'maple', 25
 
 
 
+/************************************************/
 /******************** Arrays ********************/
+/************************************************/
 
 const cart = [];
 const products = [product1, product2, product3, product4, product5, product6];
 
 
-
-/******************** Vars ********************/
-
-const chooseProduct = Number(prompt(
-    `Elija el producto que desea comprar:
-    1 - Guitarra ${product1.category} ${product1.brand} ${product1.model} - u$d ${product1.price}
-    2 - Guitarra ${product2.category} ${product2.brand} ${product2.model} - u$d ${product2.price}
-    3 - Guitarra ${product3.category} ${product3.brand} ${product3.model} - u$d ${product3.price}
-    4 - Guitarra ${product4.category} ${product4.brand} ${product4.model} - u$d ${product4.price}
-    5 - Guitarra ${product5.category} ${product5.brand} ${product5.model} - u$d ${product5.price}
-    6 - Guitarra ${product6.category} ${product6.brand} ${product6.model} - u$d ${product6.price}
-    `
-));
-
-const chooseQuantity1 = Number(prompt( 'Coloque la cantidad:' ));
-
-const chooseAnotherProduct = Number(prompt(
-    `¿Desea comprar otro producto?:
-    1 - Guitarra ${product1.category} ${product1.brand} ${product1.model} - u$d ${product1.price}
-    2 - Guitarra ${product2.category} ${product2.brand} ${product2.model} - u$d ${product2.price}
-    3 - Guitarra ${product3.category} ${product3.brand} ${product3.model} - u$d ${product3.price}
-    4 - Guitarra ${product4.category} ${product4.brand} ${product4.model} - u$d ${product4.price}
-    5 - Guitarra ${product5.category} ${product5.brand} ${product5.model} - u$d ${product5.price}
-    6 - Guitarra ${product6.category} ${product6.brand} ${product6.model} - u$d ${product6.price}
-    `
-));
-
-const chooseQuantity2 = Number(prompt( 'Coloque la cantidad:' ));
-
 console.log('En el carrito:')
 
+/***************************************************/
 /******************** Functions ********************/
+/***************************************************/
 
-const addToCart1 = (product1, quantity1) => {
-    if( products[chooseProduct - 1].stock >= chooseQuantity1 ) {
-        alert( 
-            `Felicitaciones! Acabás de agregar al carrito ${chooseQuantity1} guitarra/s ${products[chooseProduct - 1].category}/s ${products[chooseProduct - 1].brand} ${products[chooseProduct - 1].model} por por u$d ${products[chooseProduct - 1].price * chooseQuantity1}` 
-            )
+const addToCart = () => {
 
-        cart.push( products[product1 - 1] )
+    // Función para validar el dato ingresado en chooseProduct
+    const validationChooseProduct = () => {
+        const chooseProduct = Number(prompt(
+            `Elija el producto que desea comprar:
+            1 - Guitarra ${product1.category} ${product1.brand} ${product1.model} - u$d ${product1.price}
+            2 - Guitarra ${product2.category} ${product2.brand} ${product2.model} - u$d ${product2.price}
+            3 - Guitarra ${product3.category} ${product3.brand} ${product3.model} - u$d ${product3.price}
+            4 - Guitarra ${product4.category} ${product4.brand} ${product4.model} - u$d ${product4.price}
+            5 - Guitarra ${product5.category} ${product5.brand} ${product5.model} - u$d ${product5.price}
+            6 - Guitarra ${product6.category} ${product6.brand} ${product6.model} - u$d ${product6.price}`
+        ));
+        if( (chooseProduct < 7) && (chooseProduct > 0) ) {
+             // if de validación de stock de producto
+            if(products[chooseProduct - 1].stock >= 1) {
+                
+                const chooseQuantity = Number(prompt( 'Coloquá la cantidad:' ));
 
-        products[chooseProduct - 1].quantity = quantity1;
-        console.log(
-            `|=> Guitarra ${products[chooseProduct - 1].category} ${products[chooseProduct - 1].brand} ${products[chooseProduct - 1].model} X *${products[chooseProduct - 1].quantity} unidades* === u$d ${products[chooseProduct - 1].price * chooseQuantity1}`
-        );
-    } else {
-        alert( 
-            `Lo sentimos, no contamos con la cantidad requerida de guitarras ${products[chooseProduct - 1].category}s ${products[chooseProduct - 1].brand} ${products[chooseProduct - 1].model}`
-            )
-        products[chooseProduct - 1].quantity = '';
-    }
+                // if de validación de stock de producto con respecto a la cantidad solicitada
+                if(products[chooseProduct - 1].stock >= chooseQuantity) {
+                    alert( 
+                        `Felicitaciones! Acabás de agregar al carrito ${chooseQuantity} guitarra/s ${products[chooseProduct - 1].category}/s ${products[chooseProduct - 1].brand} ${products[chooseProduct - 1].model} por por u$d ${products[chooseProduct - 1].price * chooseQuantity}` 
+                        )
+                    
+                    // Se agrega la cantidad solicitada en la propiedad quantity del producto
+                    products[chooseProduct - 1].quantity = chooseQuantity;
+
+                    // Se pushea el producto al array cart
+                    cart.push( products[chooseProduct - 1] )
+
+                    console.log(
+                        `|=> Guitarra ${products[chooseProduct - 1].category} ${products[chooseProduct - 1].brand} ${products[chooseProduct - 1].model} X *${products[chooseProduct - 1].quantity} unidades* === u$d ${products[chooseProduct - 1].price * chooseQuantity}`                
+                        );
+                } else {
+                    alert( 
+                        `Lo sentimos, en este momento no contamos con stock de guitarras ${products[chooseProduct - 1].category}s ${products[chooseProduct - 1].brand} ${products[chooseProduct - 1].model}`
+                        )
+                }
+            
+            } else {
+                alert( 
+                    `Lo sentimos, no contamos con la cantidad requerida de guitarras ${products[chooseProduct - 1].category}s ${products[chooseProduct - 1].brand} ${products[chooseProduct - 1].model}`
+                    )
+                products[chooseProduct - 1].quantity = 0;
+            }
+            
+            // Función de validación de ingreso de dato en el prompt continueShopping
+            const validationContinueShopping = () => {
+                const continueShopping = prompt( 'Desea seguir comprando? S/N');
+                if( (continueShopping == 'S') || (continueShopping == 's') ){
+                    // Se vuelve a llamar a la función addToCart para seguir comprando
+                    addToCart();
+                } else if( (continueShopping == 'N') || (continueShopping == 'n') ) {
+                    alert( 'Muchas gracias por comprar en TuCuerda, tu carrito te espera!' );
+                } else {
+                    alert( 'Por favor coloquá una opción válida' )
+                    // Se llama a la función validationContinueShopping para validar nuevamente la continuidad de la compra
+                    validationContinueShopping();
+                };
+            };
+
+            // Se llama a la función validationContinueShopping
+            validationContinueShopping();
+        } else {
+            alert( 'Por favor coloquá una opción válida' )
+            // Se llama a la funcíon para validar nuevamente el dato en chooseProduct
+            validationChooseProduct();
+        }
+    };
+    // Se llama a la función validationChooseProduct
+    validationChooseProduct();  
 };
 
-const addToCart2 = (product2, quantity2) => {
-    if( products[chooseAnotherProduct - 1].stock >= chooseQuantity2 ) {
-        alert( `Felicitaciones! Acabás de agregar al carrito ${chooseQuantity2} guitarra/s ${products[chooseAnotherProduct - 1].category}/s ${products[chooseAnotherProduct - 1].brand} ${products[chooseAnotherProduct - 1].model} por u$d ${products[chooseAnotherProduct - 1].price * chooseQuantity2}` )
-        cart.push(products[product2 - 1])
-        products[chooseAnotherProduct - 1].quantity = quantity2;
-        console.log(
-            `|=> Guitarra ${products[chooseAnotherProduct - 1].category} ${products[chooseAnotherProduct - 1].brand} ${products[chooseAnotherProduct - 1].model} X *${products[chooseAnotherProduct - 1].quantity} unidades* === u$d ${products[chooseAnotherProduct - 1].price * chooseQuantity2}`
-        );
-    } else {
-        alert( `Lo sentimos, no contamos con la cantidad requerida de guitarras ${products[chooseAnotherProduct - 1].category}s ${products[chooseAnotherProduct - 1].brand} ${products[chooseAnotherProduct - 1].model}`)
-        products[chooseAnotherProduct - 1].quantity = '';
-    }
-};
+/**********************************************************/
+/******************** Function called ********************/
+/**********************************************************/
 
+addToCart();
 
-
-/******************** Functions called ********************/
-
-addToCart1(chooseProduct, chooseQuantity1,);
-
-addToCart2(chooseAnotherProduct, chooseQuantity2);
-
-
-
-/******************** Reduce method: total cart price ********************/
-
+// Cáclulo del valor total del carrito con el método reduce
 const totalCartPrice = cart.reduce( (product1, product2) => (product1 + (product2.price * product2.quantity) ), 0)
 
 console.log( `Total a abonar: u$d ${totalCartPrice}` );
+
+console.log( 'Array cart:' );
+
+console.log(cart);
