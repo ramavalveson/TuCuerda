@@ -26,7 +26,7 @@ header {
             }
             .seccionesContainer {
                 margin: 0% 10%;
-                a {
+                button {
                     color: $colorSecundario;
                     font-family: $fontLogo;
                     text-align: center;
@@ -35,12 +35,8 @@ header {
             }
         }
         .carrito {
-            position: fixed;
-            top: 5rem;
-            right: 0;
-            z-index: 10;
             img {
-                width: 75%;
+                width: 100%;
             }
         }
     }

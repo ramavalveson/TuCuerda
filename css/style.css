@@ -24,20 +24,14 @@ header nav div button span .barsMenu {
 header nav div .seccionesContainer {
   margin: 0% 10%;
 }
-header nav div .seccionesContainer a {
+header nav div .seccionesContainer button {
   color: #fff;
   font-family: "Monoton", cursive;
   text-align: center;
   font-size: 1.5rem;
 }
-header nav .carrito {
-  position: fixed;
-  top: 5rem;
-  right: 0;
-  z-index: 10;
-}
 header nav .carrito img {
-  width: 75%;
+  width: 100%;
 }
 
 h1 {
