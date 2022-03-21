@@ -196,5 +196,6 @@ function productToFind() {
     const findedProducts = products.filter((product) => {
         return product.model.toUpperCase().match(productModel);
     });
+    document.getElementById("tittle-products-to-show").innerHTML = 'Resultados de tu búsqueda';
     cardGenerator(findedProducts);
 };
