@@ -62,7 +62,7 @@ const addToCart = (idProduct) => {
         cartItem.stock--;
         cartItem.quantity++;
     } else {
-        outOfStock();
+        outOfStock(addedProduct);
     };
     cartPrice();
     cartItemsQuantity();
@@ -132,11 +132,11 @@ function productToFind() {
 };
 
 // SweetAlert out of stock
-function outOfStock() {
+function outOfStock(addedProduct) {
     swal({
         icon: 'warning',
         title: 'Sin Stock',
-        text: 'Lo sentimos, no contamos con más unidades!',
+        text: `Lo sentimos, no contamos con más unidades de ${addedProduct.brand} ${addedProduct.model}!`
     });
 };
 

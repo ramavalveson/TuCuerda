@@ -100,7 +100,7 @@ function addOneProduct(idProduct) {
         cardGeneratorOfCart(cart);
         localStorage.setItem('cart', JSON.stringify(cart));
     } else {
-        outOfStock();
+        outOfStock(productAdded);
     }
 };
 
