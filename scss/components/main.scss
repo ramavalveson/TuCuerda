@@ -1,7 +1,7 @@
 // Main
 
 h1 {
-    font-size: 5rem;
+    font-size: 4rem;
     color: $colorSecundario;
     font-family: $fontLogo;
     margin: 3% 0% 2% 0%;
@@ -46,7 +46,12 @@ h1 {
         font-family: $fontLogo;
         text-align: center;
         color: $colorSecundario;
-        margin-bottom: 5%;
+        margin-bottom: 2%;
+    }
+    .filter {
+        font-family: $fontLogo;
+        font-size: 1.5rem;
+        color: $colorSecundario;
     }
     .gridSectionGuitar {
         .filaProductos {
@@ -79,5 +84,21 @@ h1 {
                 }
             }
         }
+    }
+}
+#to-top {
+    background-color: $bgOpacity;
+    border: solid 0.2rem $colorSecundario;
+    border-radius: 100%;
+    position: fixed;
+    bottom: 0.8rem;
+    right: 0.8rem;
+    text-align: center;
+    a {
+        display: block;
+        font-family: $fontLogo;
+        font-size: 1rem;
+        color: $colorSecundario;
+        padding: 2%;
     }
 }

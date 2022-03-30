@@ -1,72 +1,46 @@
-/*******************************************************************/
-/******************** Products creator function ********************/
-/*******************************************************************/
-
-function Product(id, model, brand, category, mainMaterial, price, stock, quantity) {
-    this.id = id;
-    this.model = model;
-    this.brand = brand;
-    this.category = category;
-    this.mainMaterial = mainMaterial;
-    this.price = price;
-    this.stock = stock;
-    this.quantity = quantity;
-};
-
-
-
 /************************************************************/
-/******************** Products (Objects) ********************/
+/******************** Array of Products *********************/
 /************************************************************/
 
-// Electric Guitars
-const productE1  = new Product (1, 'SG', 'Gibson', 'electrica', 'Mahogany', 1599, 8, 0);
-const productE2  = new Product (2, 'Les Paul', 'Gibson', 'electrica', 'Mahogany', 2699, 10, 0);
-const productE3  = new Product (3, 'Stratocaster', 'Fender', 'electrica', 'Maple', 1799, 0, 0);
-const productE4  = new Product (4, 'Telecaster', 'Fender', 'electrica', 'Maple', 1499, 5, 0);
-const productE5  = new Product (5, 'Explorer', 'Gibson', 'electrica', 'Mahogany', 1899, 9, 0);
-const productE6  = new Product (6, 'jem7vp', 'Ibanez', 'electrica', 'Maple', 2599, 1, 0);
-const productE7  = new Product (7, 'SG', 'Gibson', 'electrica', 'Mahogany', 1599, 8, 0);
-const productE8  = new Product (8, 'Les Paul', 'Gibson', 'electrica', 'Mahogany', 2699, 10, 0);
-const productE9  = new Product (9, 'Stratocaster', 'Fender', 'electrica', 'Maple', 1799, 0, 0);
-const productE10 = new Product (10, 'Telecaster', 'Fender', 'electrica', 'Maple', 1499, 5, 0);
-const productE11 = new Product (11, 'Explorer', 'Gibson', 'electrica', 'Mahogany', 1899, 9, 0);
-const productE12 = new Product (12, 'jem7vp', 'Ibanez', 'electrica', 'Maple', 2599, 1, 0);
-const productE13 = new Product (13, 'SG', 'Gibson', 'electrica', 'Mahogany', 1599, 8, 0);
-const productE14 = new Product (14, 'Les Paul', 'Gibson', 'electrica', 'Mahogany', 2699, 10, 0);
-const productE15 = new Product (15, 'Stratocaster', 'Fender', 'electrica', 'Maple', 1799, 0, 0);
-const productE16 = new Product (16, 'Telecaster', 'Fender', 'electrica', 'Maple', 1499, 5, 0);
-// Acoustic Guitars
-const productA1  = new Product (17, 'Hummingbird Standard', 'Gibson', 'acustica', 'Mahogany', 3999, 5, 0);
-const productA2  = new Product (18, 'SJ-200 Standard', 'Gibson', 'acustica', 'AAA Flame Maple', 4999, 9, 0);
-const productA3  = new Product (19, 'Jerry Cantrell "Fire Devil" Songwriter', 'Gibson', 'acustica', 'Rosewood', 3999, 1, 0);
-const productA4  = new Product (20, 'Songwriter Standard EC Rosewood', 'Gibson', 'acustica', 'Rosewood', 3249, 8, 0);
-const productA5  = new Product (21, '1960 Hummingbird Fixed Bridge ', 'Gibson', 'acustica', 'Mahogany', 5199, 10, 0);
-const productA6  = new Product (22, 'Doves in Flight', 'Gibson', 'acustica', 'Flame maple', 7999, 0, 0);
-const productA7  = new Product (23, 'J-45 Standard', 'Gibson', 'acustica', 'Mahogany', 2849, 5, 0);
-const productA8  = new Product (24, 'L-00 Original', 'Gibson', 'acustica', 'Mahogany', 2799, 5, 0);
-const productA9  = new Product (25, 'Explorer', 'Gibson', 'acustica', 'Mahogany', 1899, 9, 0);
-const productA10 = new Product (26, 'jem7vp', 'Ibanez', 'acustica', 'Maple', 2599, 1, 0);
-const productA11 = new Product (27, 'SG', 'Gibson', 'acustica', 'Mahogany', 1599, 8, 0);
-const productA12 = new Product (28, 'Les Paul', 'Gibson', 'acustica', 'Mahogany', 2699, 10, 0);
-const productA13 = new Product (29, 'Stratocaster', 'Fender', 'acustica', 'Maple', 1799, 0, 0);
-// Classical Guitar
-const productC1 = new Product (30, 'Telecaster', 'Fender', 'criolla', 'Maple', 1499, 5, 0);
-const productC2 = new Product (31, 'Telecaster', 'Fender', 'criolla', 'Maple', 1499, 5, 0);
-const productC3 = new Product (32, 'Explorer', 'Gibson', 'criolla', 'Mahogany', 1899, 9, 0);
-const productC4 = new Product (33, 'jem7vp', 'Ibanez', 'criolla', 'Maple', 2599, 1, 0);
-const productC5 = new Product (34, 'SG', 'Gibson', 'criolla', 'Mahogany', 1599, 8, 0);
-const productC6 = new Product (35, 'Les Paul', 'Gibson', 'criolla', 'Mahogany', 2699, 10, 0);
-const productC7 = new Product (36, 'Stratocaster', 'Fender', 'criolla', 'Maple', 1799, 0, 0);
-const productC8 = new Product (37, 'Telecaster', 'Fender', 'criolla', 'Maple', 1499, 5, 0);
-
-
-/************************************************/
-/******************** Arrays ********************/
-/************************************************/
-
-const cart = [];
-const products = [productE1, productE2, productE3, productE4, productE5, productE6, productE7, productE8, productE9, productE10, productE11, productE12, productE13, productE14, productE15, productE16, productA1, productA2, productA3, productA4, productA5, productA6, productA7, productA8, productA9, productA9, productA10, productA11, productA12, productA13, productC1, productC2, productC3, productC4, productC5, productC6, productC7, productC8];
+const products = [
+    // Electric Guitars
+    {id:  1, model: 'Rhoads RRT-5',                                     brand: 'Jackson',  category: 'electrica', bodyMaterial: 'Caoba',  price: 2399, stock: 3, quantity: 0, image: 'multimedia/imagenes/rhoads-rrt-5.png'},
+    {id:  2, model: 'Dinky Arch Top JS32Q DKA HT',                      brand: 'Jackson',  category: 'electrica', bodyMaterial: 'Caoba',  price: 2599, stock: 8, quantity: 0, image: 'multimedia/imagenes/dinky-arch-top-js32q-dka-ht.png'},
+    {id:  3, model: 'American Ultra Stratocaster',                      brand: 'Fender',   category: 'electrica', bodyMaterial: 'Aliso',  price: 2099, stock: 4, quantity: 0, image: 'multimedia/imagenes/stratocaster-ultra.jpg'},
+    {id:  4, model: 'American Professional II Telecaster',              brand: 'Fender',   category: 'electrica', bodyMaterial: 'Aliso',  price: 1699, stock: 1, quantity: 0, image: 'multimedia/imagenes/american-professional-ll-telecaster.jpg'},
+    {id:  5, model: 'American Professional II Jazzmaster',              brand: 'Fender',   category: 'electrica', bodyMaterial: 'Aliso',  price: 1799, stock: 4, quantity: 0, image: 'multimedia/imagenes/american-professional-ll-jazzmaster.jpg'},
+    {id:  6, model: 'American Performer Telecaster',                    brand: 'Fender',   category: 'electrica', bodyMaterial: 'Aliso',  price: 1399, stock: 2, quantity: 0, image: 'multimedia/imagenes/american-performer-telecaster.jpg'},
+    {id:  7, model: 'Player Plus Meteora HH',                           brand: 'Fender',   category: 'electrica', bodyMaterial: 'Aliso',  price: 1149, stock: 8, quantity: 0, image: 'multimedia/imagenes/player-plus-meteora-hh.jpg'},
+    {id:  8, model: 'American Ultra Luxe Telecaster Floyd Rose HH',     brand: 'Fender',   category: 'electrica', bodyMaterial: 'Aliso',  price: 2599, stock: 1, quantity: 0, image: 'multimedia/imagenes/american-ultra-luxe-telecaster-floyd-rose-hh.jpg'},
+    {id:  9, model: 'Ben Gibbard Mustang',                              brand: 'Fender',   category: 'electrica', bodyMaterial: 'Arce',   price: 1199, stock: 2, quantity: 0, image: 'multimedia/imagenes/ben-gibbard-mustang.jpg'},
+    {id: 10, model: 'XPTB620',                                          brand: 'Ibanez',   category: 'electrica', bodyMaterial: 'Okoume', price: 2799, stock: 3, quantity: 0, image: 'multimedia/imagenes/xptb620.png'},
+    {id: 11, model: 'Les Paul 70s Deluxe - 70s Cherry Sunburst',        brand: 'Gibson',   category: 'electrica', bodyMaterial: 'Caoba',  price: 2699, stock: 5, quantity: 0, image: 'multimedia/imagenes/les-paul-70s-deluxe-70s-cherry-sunburst.jpg'},
+    {id: 12, model: 'SG Standard 61 Maestro Vibrola - Vintage Cherry',  brand: 'Gibson',   category: 'electrica', bodyMaterial: 'Caoba',  price: 2199, stock: 4, quantity: 0, image: 'multimedia/imagenes/sg-standard-61-maestro-vibrola-vintage-cherry.jpg'},
+    {id: 13, model: '70s Explorer - Ebony',                             brand: 'Gibson',   category: 'electrica', bodyMaterial: 'Caoba',  price: 2199, stock: 6, quantity: 0, image: 'multimedia/imagenes/70s-explorer-ebony.jpg'},
+    {id: 14, model: 'Firebird Custom Ebony Fingerboard Gloss - Ebony',  brand: 'Gibson',   category: 'electrica', bodyMaterial: 'Caoba',  price: 5299, stock: 1, quantity: 0, image: 'multimedia/imagenes/firebird-custom-w-ebony-fingerboard-gloss -ebony.jpg'},
+    {id: 15, model: 'JEM7VP',                                           brand: 'Ibanez',   category: 'electrica', bodyMaterial: 'Aliso',  price: 5699, stock: 1, quantity: 0, image: 'multimedia/imagenes/jem7vp.png'},
+    {id: 16, model: 'GRGM21M',                                          brand: 'Ibanez',   category: 'electrica', bodyMaterial: 'Maple',  price: 1799, stock: 6, quantity: 0, image: 'multimedia/imagenes/grgm21m.png'},
+    // Acoustic Guitars
+    {id: 17, model: 'GD11M-NS',                                         brand: 'Takamine', category: 'acustica',  bodyMaterial: 'Caoba',  price: 599,  stock: 8, quantity: 0, image: 'multimedia/imagenes/takamine-1.png'},
+    {id: 18, model: 'GD10CE-NS',                                        brand: 'Takamine', category: 'acustica',  bodyMaterial: 'Caoba',  price: 549,  stock: 7, quantity: 0, image: 'multimedia/imagenes/takamine-2.png'},
+    {id: 19, model: 'GF15CE-BLK',                                       brand: 'Takamine', category: 'acustica',  bodyMaterial: 'Caoba',  price: 649,  stock: 6, quantity: 0, image: 'multimedia/imagenes/takamine-3.png'},
+    {id: 20, model: 'G530SBF',                                          brand: 'Takamine', category: 'acustica',  bodyMaterial: 'Caoba',  price: 749,  stock: 3, quantity: 0, image: 'multimedia/imagenes/takamine-4.png'},
+    {id: 21, model: 'CD-60SCE DREADNOUGHT',                             brand: 'Fender',   category: 'acustica',  bodyMaterial: 'Caoba',  price: 349,  stock: 9, quantity: 0, image: 'multimedia/imagenes/fender-acoustic-1.jpg'},
+    {id: 22, model: 'REDONDO PLAYER',                                   brand: 'Fender',   category: 'acustica',  bodyMaterial: 'Caoba',  price: 449,  stock: 4, quantity: 0, image: 'multimedia/imagenes/fender-acoustic-2.jpg'},
+    {id: 23, model: 'NEWPORTER SPECIAL MAHOGANY',                       brand: 'Fender',   category: 'acustica',  bodyMaterial: 'Caoba',  price: 749,  stock: 2, quantity: 0, image: 'multimedia/imagenes/fender-acoustic-3.jpg'},
+    {id: 24, model: 'AEWC400',                                          brand: 'Ibanez',   category: 'acustica',  bodyMaterial: 'Maple',  price: 599,  stock: 5, quantity: 0, image: 'multimedia/imagenes/ibanez-acoustic-1.png'},
+    {id: 25, model: 'TCM50',                                            brand: 'Ibanez',   category: 'acustica',  bodyMaterial: 'Sapele', price: 849,  stock: 1, quantity: 0, image: 'multimedia/imagenes/ibanez-acoustic-2.png'},
+    {id: 26, model: 'AAD50CE',                                          brand: 'Ibanez',   category: 'acustica',  bodyMaterial: 'Sapele', price: 1199, stock: 4, quantity: 0, image: 'multimedia/imagenes/ibanez-acoustic-3.png'},
+    {id: 27, model: 'PA230E',                                           brand: 'Ibanez',   category: 'acustica',  bodyMaterial: 'Okoume', price: 649,  stock: 7, quantity: 0, image: 'multimedia/imagenes/ibanez-acoustic-4.png'},
+    {id: 28, model: 'AEG5012',                                          brand: 'Ibanez',   category: 'acustica',  bodyMaterial: 'Okoume', price: 799,  stock: 3, quantity: 0, image: 'multimedia/imagenes/ibanez-acoustic-5.png'},
+    {id: 29, model: 'CD-140SCE',                                        brand: 'Fender',   category: 'acustica',  bodyMaterial: 'Caoba',  price: 449,  stock: 8, quantity: 0, image: 'multimedia/imagenes/fender-acoustic-4.jpg'},
+    // Classical Guitar
+    {id: 30, model: 'CN-60S',                                           brand: 'Fender',   category: 'criolla',   bodyMaterial: 'Caoba',  price: 229,  stock: 9, quantity: 0, image: 'multimedia/imagenes/fender-classical-1.jpg'},
+    {id: 31, model: 'FA-15N 3/4 NYLON',                                 brand: 'Fender',   category: 'criolla',   bodyMaterial: 'Caoba',  price: 179,  stock: 8, quantity: 0, image: 'multimedia/imagenes/fender-classical-2.jpg'},
+    {id: 32, model: 'GA35TCE',                                          brand: 'Ibanez',   category: 'criolla',   bodyMaterial: 'Sapele', price: 379,  stock: 7, quantity: 0, image: 'multimedia/imagenes/ibanez-classical-1.png'},
+    {id: 33, model: 'GA6CE',                                            brand: 'Ibanez',   category: 'criolla',   bodyMaterial: 'Sapele', price: 289,  stock: 4, quantity: 0, image: 'multimedia/imagenes/ibanez-classical-2.png'},
+    {id: 34, model: 'GA5TCE',                                           brand: 'Ibanez',   category: 'criolla',   bodyMaterial: 'Sapele', price: 439,  stock: 3, quantity: 0, image: 'multimedia/imagenes/ibanez-classical-3.png'}
+];
 
 
 
@@ -74,44 +48,59 @@ const products = [productE1, productE2, productE3, productE4, productE5, product
 /******************** Functions ********************/
 /***************************************************/
 
+// Add to Cart
 const addToCart = (idProduct) => {
     const addedProduct = products.find(product => product.id === idProduct)
-    if(addedProduct.stock > 0) {
+    // Valida si se debe generar la card en el carrito o solo se debe sumar 1 unidad a la cantidad solicitada 
+    // teniendo en cuenta también el stock del producto
+    if( (addedProduct.stock > 0) && (addedProduct.quantity < 1) ) {
         cart.push(addedProduct);
         addedProduct.stock--;
-        const totalCartPrice = cart.reduce( (acc, addedProduct) => (acc + addedProduct.price ), 0)
-        document.getElementById("total-price").innerHTML = totalCartPrice;
-        document.getElementById("cart-quantity").innerHTML = cart.length;
-        cardGeneratorOfCart(cart);
+        addedProduct.quantity++;
+    } else if( (addedProduct.stock > 0) && (addedProduct.quantity > 0) ) {
+        const cartItem = cart.find(product => product.id === idProduct)
+        cartItem.stock--;
+        cartItem.quantity++;
     } else {
-        alert(`Ups! no disponemos de la cantidad solicitada de ${addedProduct.brand} ${addedProduct.model} para agregar a tu carrito.`);
-    }
+        outOfStock();
+    };
+    cartPrice();
+    cartItemsQuantity();
+    cardGeneratorOfCart(cart);
+    localStorage.setItem('cart', JSON.stringify(cart));
 };
+
 
 cardGenerator(products);
 
+// Cards generator
 function cardGenerator(productsToShow) {
     let cardAcumulator = '';
     productsToShow.forEach((productArray) => {
         cardAcumulator += `<div class="col mb-5">
         <div class="card h-100">
             <!-- Product image-->
-            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+            <div class="d-flex justify-content-center mt-3">
+            <img class="card-img-top w-50" src="${productArray.image}" alt="Guitarra ${productArray.model}"/>
+            </div>
             <!-- Product details-->
             <div class="card-body p-4">
                 <div class="text-center">
                     <!-- Product model-->
-                    <h5 class="fw-bolder">${productArray.brand} ${productArray.model}</h5>
+                    <h5 class="fw-bolder">${productArray.brand} <br>${productArray.model}</br></h5>
                     <!-- Product material-->
-                    <p> Material predominante: ${productArray.mainMaterial} </p>
-                    <!-- Product price-->
-                    u$d ${productArray.price}
+                    <p>Cuerpo de ${productArray.bodyMaterial}</p>
+                    
                 </div>
             </div>
             <!-- Product actions-->
             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                 <div class="text-center">
-                    <button onclick="addToCart(${productArray.id})" class="btn btn-outline-dark mt-auto">${(productArray.stock <= 0) ? 'Sin Stock' : 'Agregar al Carrito'}</button>
+                    <!-- Product price-->
+                    <p>u$d ${productArray.price}</p>
+                    <button onclick="addToCart(${productArray.id})" class="btn btn-secondary mt-auto">
+                    ${(productArray.stock <= 0) ? 'Sin Stock' : 'Agregar al Carrito'}
+                    </button>
                 </div>
             </div>
         </div>
@@ -124,52 +113,35 @@ function showCards(cards) {
     document.getElementById("products-container").innerHTML = cards;
 };
 
-function cardGeneratorOfCart(productsOfCart) {
-    let cardOfCartAcumulator = '';
-    productsOfCart.forEach((productArray) => {
-        cardOfCartAcumulator += `<div class="col md-1">
-        <div class="card h-100">
-            <!-- Product image-->
-            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-            <!-- Product details-->
-            <div class="card-body p-4">
-                <div class="text-center">
-                    <!-- Product model-->
-                    <h5 class="fw-bolder">${productArray.brand} ${productArray.model}</h5>
-                    <!-- Product material-->
-                    <p> Material predominante: ${productArray.mainMaterial} </p>
-                    <!-- Product price-->
-                    u$d ${productArray.price}
-                </div>
-            </div>
-            <!-- Product actions-->
-            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                <div class="text-center">
-                    <button onclick="removeProductFromCart(${productArray.id})" class="btn btn-outline-dark mt-auto">Quitar del Carrito</button>
-                </div>
-            </div>
-        </div>
-    </div>`
+// Input search results
+function productToFind() {
+    const inputContent = document.getElementById("product-to-find").value.toUpperCase().trim();
+    const findedProducts = products.filter((product) => {
+        return (product.model.toUpperCase().match(inputContent) || 
+                product.brand.toUpperCase().match(inputContent) ||
+                product.category.toUpperCase().match(inputContent) ||
+                product.bodyMaterial.toUpperCase().match(inputContent));
+            });
+    if(inputContent != '') {
+        document.getElementById("tittle-products-to-show").innerHTML = `Resultados que coinciden con "${inputContent}"`;
+        cardGenerator(findedProducts);
+    } else {
+        document.getElementById("tittle-products-to-show").innerHTML = `Debes ingresar un valor de búsqueda`;
+        cardGenerator([]);
+    };
+};
+
+// SweetAlert out of stock
+function outOfStock() {
+    swal({
+        icon: 'warning',
+        title: 'Sin Stock',
+        text: 'Lo sentimos, no contamos con más unidades!',
     });
-    showCardsOfCart(cardOfCartAcumulator);
-};
-
-function showCardsOfCart(cards) {
-    document.getElementById("modal-contain").innerHTML = cards;
-};
-
-function removeProductFromCart(idProduct) {
-    const productToRemove = cart.find(product => product.id === idProduct)
-    let indexOfProduct = cart.indexOf(productToRemove);
-    cart.splice((indexOfProduct), 1);
-    productToRemove.stock++;
-    const totalCartPrice = cart.reduce( (acc, addedProduct) => (acc + addedProduct.price ), 0)
-    document.getElementById("total-price").innerHTML = totalCartPrice;
-    document.getElementById("cart-quantity").innerHTML = cart.length;
-    cardGeneratorOfCart(cart);
 };
 
 
+// Filter by category - top of page
 const btnElectric = document.getElementById("filter-electric")
 btnElectric.onclick = () => {
     const categoryFilterElectric = products.filter((product) => product.category.includes('electrica'));
@@ -191,11 +163,5 @@ btnClassic.onclick = () => {
     document.getElementById("tittle-products-to-show").innerHTML = 'Guitarras Criollas';
 };
 
-function productToFind() {
-    const productModel = document.getElementById("product-to-find").value.toUpperCase().trim();
-    const findedProducts = products.filter((product) => {
-        return product.model.toUpperCase().match(productModel);
-    });
-    document.getElementById("tittle-products-to-show").innerHTML = 'Resultados de tu búsqueda';
-    cardGenerator(findedProducts);
-};
+
+

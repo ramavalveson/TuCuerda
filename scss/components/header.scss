@@ -26,7 +26,7 @@ header {
             }
             .seccionesContainer {
                 margin: 0% 10%;
-                button {
+                a {
                     color: $colorSecundario;
                     font-family: $fontLogo;
                     text-align: center;
@@ -37,6 +37,13 @@ header {
         .carrito {
             img {
                 width: 100%;
+            }
+        }
+    }
+    .input-search {
+        button {
+            a {
+                color: $colorSecundario;
             }
         }
     }
