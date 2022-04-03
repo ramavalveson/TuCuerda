@@ -55,22 +55,20 @@ const addToCart = (idProduct) => {
     // teniendo en cuenta también el stock del producto
     if( (addedProduct.stock > 0) && (addedProduct.quantity < 1) ) {
         cart.push(addedProduct);
-        addedProduct.stock--;
-        addedProduct.quantity++;
+        cartDataStorageProductAdded(addedProduct);
+        addedToCartToastify(addedProduct);
     } else if( (addedProduct.stock > 0) && (addedProduct.quantity > 0) ) {
-        const cartItem = cart.find(product => product.id === idProduct)
-        cartItem.stock--;
-        cartItem.quantity++;
+        cartDataStorageProductAdded(addedProduct);    
+        addedToCartToastify(addedProduct);
     } else {
         outOfStock(addedProduct);
     };
-    cartPrice();
-    cartItemsQuantity();
-    cardGeneratorOfCart(cart);
-    localStorage.setItem('cart', JSON.stringify(cart));
 };
 
+// función flecha que escribe las cards en el sitio indicado del html
+const showCards = (cards) => document.getElementById("products-container").innerHTML = cards;
 
+// llamado a la función para generar las cards
 cardGenerator(products);
 
 // Cards generator
@@ -109,10 +107,6 @@ function cardGenerator(productsToShow) {
     showCards(cardAcumulator);
 }; 
 
-function showCards(cards) {
-    document.getElementById("products-container").innerHTML = cards;
-};
-
 // Input search results
 function productToFind() {
     const inputContent = document.getElementById("product-to-find").value.toUpperCase().trim();
@@ -140,7 +134,6 @@ function outOfStock(addedProduct) {
     });
 };
 
-
 // Filter by category - top of page
 const btnElectric = document.getElementById("filter-electric")
 btnElectric.onclick = () => {
@@ -163,5 +156,20 @@ btnClassic.onclick = () => {
     document.getElementById("tittle-products-to-show").innerHTML = 'Guitarras Criollas';
 };
 
-
-
+// Toastify add to cart
+function addedToCartToastify(product) {
+    Toastify({
+        text: `Agregaste ${product.quantity} ${product.brand} ${product.model} al Carrito`,
+        duration: 2500,
+        gravity: "bottom", 
+        position: "right", 
+        offset: {
+            x: '5rem' 
+        },
+        stopOnFocus: true, 
+        style: {
+            background: "linear-gradient(to right, #00b09b, #96c93d)",
+        },
+        onClick: function(){}
+    }).showToast();
+};

@@ -2,29 +2,20 @@
 /******* Cart Validation for Storage and Refresh Page *******/
 /************************************************************/
 
-const cart = storageCartValidation();
+// Se cambió la función por un operador OR
+const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-function storageCartValidation() {
-    if (localStorage.getItem('cart') != null) {
-        const storageCart = JSON.parse(localStorage.getItem('cart'));
-        return storageCart;
-    } else {
-        return [];
-    };
-};
-cartItemsQuantity();
-cartPrice();
-cardGeneratorOfCart(cart);
+cartData();
 
 // Total Price of Cart
 function cartPrice() {
-    const totalCartPrice = cart.reduce((acc, addedProduct) => ( acc + (addedProduct.quantity * addedProduct.price) ), 0);
+    const totalCartPrice = cart.reduce((acc, productToAdd) => ( acc + (productToAdd.quantity * productToAdd.price) ), 0);
     document.getElementById("total-price").innerHTML = totalCartPrice;
 };
 
 // Total Items of Cart
 function cartItemsQuantity() {
-    const cartQuantity = cart.reduce((acc, addedProduct) => (acc + addedProduct.quantity), 0);
+    const cartQuantity = cart.reduce((acc, productToAdd) => (acc + productToAdd.quantity), 0);
     document.getElementById("cart-quantity").innerHTML = cartQuantity;
 };
 
@@ -54,13 +45,17 @@ function cardGeneratorOfCart(productsOfCart) {
     <div class="col md-1 mb-5">
         <div class="d-flex justify-content-center align-items-center">
             <button onclick="removeOneProduct(${productArray.id})" class="btn me-3">
-                <img src="multimedia/iconos/arrow-down.png" alt="flecha hacia abajo">
+                <img src="multimedia/iconos/arrow-down.png" alt="eliminar una unidad del producto">
             </button>
                 <p class="me-3 ms-3">${productArray.quantity}</p>
             <button onclick="addOneProduct(${productArray.id})" class="btn ms-3">
-                <img src="multimedia/iconos/arrow-up.png" alt="flecha hacia arriba">
+                <img src="multimedia/iconos/arrow-up.png" alt="agregar una unidad del producto">
             </button>
         </div>
+    </div>
+    <div class="col md-1 mb-5">
+        <button onclick="removeProductFromCart(${productArray.id})" class="btn">
+            <img src="multimedia/iconos/trash.png" alt="eliminar del carrito">
     </div>`
     });
     showCardsOfCart(cardOfCartAcumulator);
@@ -70,39 +65,62 @@ function showCardsOfCart(cards) {
     document.getElementById("modal-card").innerHTML = cards;
 };
 
-// Remove one product from Cart
-function removeOneProduct(idProduct) {
-    const productToRemove = cart.find(product => product.id === idProduct);
-    let indexOfProduct = cart.indexOf(productToRemove);
-    // Valida si solamente se debe disminuir una unidad en la solicitud del producto o si queda 1 unica unidad elimina la card
-    if(productToRemove.quantity === 1) {
-        cart.splice((indexOfProduct), 1);
-        productToRemove.stock++;
-        productToRemove.quantity--;
-    } else {
-        productToRemove.stock++;
-        productToRemove.quantity--;
-    }
+// Se realizaron funciones para reducir lineas de codigo en otras funciones que comparten funcionalidades y para que sea escalable
+function cartData() {
     cartPrice();
     cartItemsQuantity();
     cardGeneratorOfCart(cart);
+}
+
+function cartDataStorage() {
+    cartData();
     localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+function cartDataStorageProductAdded(product) {
+    product.stock--;
+    product.quantity++;
+    cartDataStorage();
+};
+
+// Remove all unities of products from cart
+function removeProductFromCart(idProduct) {
+    const productToRemove = cart.find(product => product.id === idProduct);
+    let indexOfProduct = cart.indexOf(productToRemove);
+    cart.splice((indexOfProduct), 1)
+    productToRemove.stock = productToRemove.stock + productToRemove.quantity
+    productToRemove.quantity = 0;
+    removeProductFromCartToastify(productToRemove)
+    cartDataStorage();
+};
+
+// Remove one product from Cart
+function removeOneProduct(idProduct) {
+    const productToRemove = cart.find(product => product.id === idProduct);
+    // Se aplicó operador logico AND
+    productToRemove.quantity > 1 && ( (productToRemove.stock++) + ( productToRemove.quantity--) );
+    cartDataStorage();
 };
 
 // Add one product to Cart
 function addOneProduct(idProduct) {
-    const productAdded = cart.find(product => product.id === idProduct);
-    if(productAdded.stock != 0) {
-        productAdded.stock--;
-        productAdded.quantity++;
-        cartPrice();
-        cartItemsQuantity();
-        cardGeneratorOfCart(cart);
-        localStorage.setItem('cart', JSON.stringify(cart));
-    } else {
-        outOfStock(productAdded);
-    }
+    const productToAdd = cart.find(product => product.id === idProduct);
+    // Se aplico if ternario
+    productToAdd.stock != 0 ? cartDataStorageProductAdded(productToAdd) : outOfStock(productToAdd);
 };
 
-
+// Toastify remove product from cart
+function removeProductFromCartToastify(product) {
+    Toastify({
+        text: `Eliminaste ${product.brand} ${product.model} del Carrito`,
+        duration: 2500,
+        gravity: "bottom", 
+        position: "left", 
+        stopOnFocus: true, 
+        style: {
+            background: "linear-gradient(to right, #FF0000, #FF8800)",
+        },
+        onClick: function(){}
+    }).showToast();
+};
 
