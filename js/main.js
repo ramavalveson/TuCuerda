@@ -50,18 +50,21 @@ const products = [
 
 // Add to Cart
 const addToCart = (idProduct) => {
+    const quantityValue = Number(document.getElementById(`quantity-${idProduct}`).value);
     const addedProduct = products.find(product => product.id === idProduct)
+    addedProduct.quantity = quantityValue;
+    const productOnCart = cart.find(product => product.id === idProduct)
     // Valida si se debe generar la card en el carrito o solo se debe sumar 1 unidad a la cantidad solicitada 
     // teniendo en cuenta también el stock del producto
-    if( (addedProduct.stock > 0) && (addedProduct.quantity < 1) ) {
+    if( (addedProduct.stock > quantityValue) && (productOnCart === undefined) ) {
         cart.push(addedProduct);
-        cartDataStorageProductAdded(addedProduct);
+        addedProduct.stock = addedProduct.stock - quantityValue;
+        cartDataStorage();
         addedToCartToastify(addedProduct);
-    } else if( (addedProduct.stock > 0) && (addedProduct.quantity > 0) ) {
-        cartDataStorageProductAdded(addedProduct);    
-        addedToCartToastify(addedProduct);
+    } else if( (addedProduct.stock > quantityValue) && (productOnCart.id === addedProduct.id) ) {
+        productAllreadyAdded(addedProduct);
     } else {
-        outOfStock(addedProduct);
+        outOfStockButtonCard(addedProduct);
     };
 };
 
@@ -94,6 +97,7 @@ function cardGenerator(productsToShow) {
             <!-- Product actions-->
             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                 <div class="text-center">
+                    <input value="1" min="1" id="quantity-${productArray.id}" type="number" placeholder="Cantidad">
                     <!-- Product price-->
                     <p>u$d ${productArray.price}</p>
                     <button onclick="addToCart(${productArray.id})" class="btn btn-secondary mt-auto">
@@ -125,13 +129,46 @@ function productToFind() {
     };
 };
 
-// SweetAlert out of stock
-function outOfStock(addedProduct) {
+// SweetAlert product allready added
+function productAllreadyAdded(addedProduct) {
+    swal({
+        icon: 'error',
+        title: 'Oops!',
+        text: `El producto ${addedProduct.brand} ${addedProduct.model} ya está en el carrito!`
+    });
+};
+
+// SweetAlert out of stock on button card
+function outOfStockButtonCard(addedProduct) {
     swal({
         icon: 'warning',
         title: 'Sin Stock',
-        text: `Lo sentimos, no contamos con más unidades de ${addedProduct.brand} ${addedProduct.model}!`
-    });
+        text: `Lo sentimos, no contamos con la cantidad requerida de ${addedProduct.brand} ${addedProduct.model}!`,
+        button: 'Ver Stock'
+    })
+    .then((value) => {
+        if(value) {
+            swal(`El stock disponible es de ${addedProduct.stock} unidades`)
+        }
+    })
+};
+
+// Toastify added to cart
+function addedToCartToastify(product) {
+    Toastify({
+        text: `Agregaste ${product.quantity} ${product.brand} ${product.model} al Carrito`,
+        duration: 2500,
+        gravity: "bottom", 
+        position: "right", 
+        offset: {
+            x: '5rem' 
+        },
+        stopOnFocus: true, 
+        style: {
+            background: "linear-gradient(to right, #00b09b, #96c93d)",
+        },
+        onClick: function(){}
+    }).showToast();
 };
 
 // Filter by category - top of page
@@ -156,20 +193,3 @@ btnClassic.onclick = () => {
     document.getElementById("tittle-products-to-show").innerHTML = 'Guitarras Criollas';
 };
 
-// Toastify add to cart
-function addedToCartToastify(product) {
-    Toastify({
-        text: `Agregaste ${product.quantity} ${product.brand} ${product.model} al Carrito`,
-        duration: 2500,
-        gravity: "bottom", 
-        position: "right", 
-        offset: {
-            x: '5rem' 
-        },
-        stopOnFocus: true, 
-        style: {
-            background: "linear-gradient(to right, #00b09b, #96c93d)",
-        },
-        onClick: function(){}
-    }).showToast();
-};

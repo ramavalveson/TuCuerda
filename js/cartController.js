@@ -45,11 +45,11 @@ function cardGeneratorOfCart(productsOfCart) {
     <div class="col md-1 mb-5">
         <div class="d-flex justify-content-center align-items-center">
             <button onclick="removeOneProduct(${productArray.id})" class="btn me-3">
-                <img src="multimedia/iconos/arrow-down.png" alt="eliminar una unidad del producto">
+                <img src="multimedia/iconos/minus.png" alt="eliminar una unidad del producto">
             </button>
                 <p class="me-3 ms-3">${productArray.quantity}</p>
             <button onclick="addOneProduct(${productArray.id})" class="btn ms-3">
-                <img src="multimedia/iconos/arrow-up.png" alt="agregar una unidad del producto">
+                <img src="multimedia/iconos/plus.png" alt="agregar una unidad del producto">
             </button>
         </div>
     </div>
@@ -106,7 +106,16 @@ function removeOneProduct(idProduct) {
 function addOneProduct(idProduct) {
     const productToAdd = cart.find(product => product.id === idProduct);
     // Se aplico if ternario
-    productToAdd.stock != 0 ? cartDataStorageProductAdded(productToAdd) : outOfStock(productToAdd);
+    productToAdd.stock != 0 ? cartDataStorageProductAdded(productToAdd) : outOfStockButtonCart(productToAdd);
+};
+
+// SweetAlert out of stock on button of cart
+function outOfStockButtonCart(addedProduct) {
+    swal({
+        icon: 'warning',
+        title: 'Sin Stock',
+        text: `Lo sentimos, no contamos con más ${addedProduct.brand} ${addedProduct.model}!`,
+    })
 };
 
 // Toastify remove product from cart
