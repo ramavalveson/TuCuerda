@@ -7,6 +7,21 @@ const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 cartData();
 
+// Se muestra en el carrito la cotización del dolar actualizada al dia de la fecha 
+const dolar = () => {
+    fetch('https://www.dolarsi.com/api/api.php?type=valoresprincipales')
+    .then((response) => response.json())
+    .then((data) =>  dolarPrice(data[1].casa.venta))  
+    
+}
+
+const dolarPrice = (BuyValue) => {
+    document.getElementById('dolar-value').innerHTML = `Valor dolar hoy: $ ${BuyValue}`
+}
+
+dolar()
+
+
 // Total Price of Cart
 function cartPrice() {
     const totalCartPrice = cart.reduce((acc, productToAdd) => ( acc + (productToAdd.quantity * productToAdd.price) ), 0);
@@ -37,7 +52,7 @@ function cardGeneratorOfCart(productsOfCart) {
                     <!-- Product material-->
                     <p> Material predominante: ${productArray.bodyMaterial} </p>
                     <!-- Product price-->
-                    u$d ${productArray.price}
+                    <p>u$d ${productArray.price}</p>
                 </div>
             </div>
         </div>
@@ -132,4 +147,6 @@ function removeProductFromCartToastify(product) {
         onClick: function(){}
     }).showToast();
 };
+
+
 

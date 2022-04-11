@@ -42,6 +42,7 @@ const products = [
     {id: 34, model: 'GA5TCE',                                           brand: 'Ibanez',   category: 'criolla',   bodyMaterial: 'Sapele', price: 439,  stock: 3, quantity: 0, image: 'multimedia/imagenes/ibanez-classical-3.png'}
 ];
 
+// localStorage.setItem('products', JSON.stringify(products));
 
 
 /***************************************************/
@@ -50,21 +51,23 @@ const products = [
 
 // Add to Cart
 const addToCart = (idProduct) => {
-    const quantityValue = Number(document.getElementById(`quantity-${idProduct}`).value);
+    const quantityValue = Math.ceil(document.getElementById(`quantity-${idProduct}`).value);
     const addedProduct = products.find(product => product.id === idProduct)
-    addedProduct.quantity = quantityValue;
     const productOnCart = cart.find(product => product.id === idProduct)
     // Valida si se debe generar la card en el carrito o solo se debe sumar 1 unidad a la cantidad solicitada 
     // teniendo en cuenta también el stock del producto
-    if( (addedProduct.stock > quantityValue) && (productOnCart === undefined) ) {
+    if(quantityValue <= 0) {
+        quantityError();
+    } else if( (addedProduct.stock >= quantityValue) && (productOnCart === undefined) ) {
         cart.push(addedProduct);
+        addedProduct.quantity = quantityValue;
         addedProduct.stock = addedProduct.stock - quantityValue;
         cartDataStorage();
         addedToCartToastify(addedProduct);
-    } else if( (addedProduct.stock > quantityValue) && (productOnCart.id === addedProduct.id) ) {
-        productAllreadyAdded(addedProduct);
-    } else {
+    } else if( (addedProduct.stock < quantityValue) && (productOnCart === undefined) ) {
         outOfStockButtonCard(addedProduct);
+    } else if(productOnCart.id === addedProduct.id) {
+        productAllreadyAdded(addedProduct);
     };
 };
 
@@ -99,7 +102,7 @@ function cardGenerator(productsToShow) {
                 <div class="text-center">
                     <input value="1" min="1" id="quantity-${productArray.id}" type="number" placeholder="Cantidad">
                     <!-- Product price-->
-                    <p>u$d ${productArray.price}</p>
+                    <p>$ ${productArray.price}</p>
                     <button onclick="addToCart(${productArray.id})" class="btn btn-secondary mt-auto">
                     ${(productArray.stock <= 0) ? 'Sin Stock' : 'Agregar al Carrito'}
                     </button>
@@ -127,6 +130,14 @@ function productToFind() {
         document.getElementById("tittle-products-to-show").innerHTML = `Debes ingresar un valor de búsqueda`;
         cardGenerator([]);
     };
+};
+
+// SweetAlert quantity error
+function quantityError() {
+    swal({
+        icon: 'error',
+        text: 'Por favor coloque un valor válido!'
+    });
 };
 
 // SweetAlert product allready added
@@ -192,4 +203,10 @@ btnClassic.onclick = () => {
     cardGenerator(categoryFilterClassic);
     document.getElementById("tittle-products-to-show").innerHTML = 'Guitarras Criollas';
 };
+
+
+
+    
+
+
 
