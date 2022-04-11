@@ -79,50 +79,52 @@ cardGenerator(products);
 
 // Cards generator
 function cardGenerator(productsToShow) {
-    let cardAcumulator = '';
-    productsToShow.forEach((productArray) => {
-        cardAcumulator += `<div class="col mb-5">
-        <div class="card h-100">
-            <!-- Product image-->
-            <div class="d-flex justify-content-center mt-3">
-            <img class="card-img-top w-50" src="${productArray.image}" alt="Guitarra ${productArray.model}"/>
-            </div>
-            <!-- Product details-->
-            <div class="card-body p-4">
-                <div class="text-center">
-                    <!-- Product model-->
-                    <h5 class="fw-bolder">${productArray.brand} <br>${productArray.model}</br></h5>
-                    <!-- Product material-->
-                    <p>Cuerpo de ${productArray.bodyMaterial}</p>
-                    
+    // fetch para pasar el valor de los productos a pesos en las cards generadas en la seccion de productos 
+    fetch('https://www.dolarsi.com/api/api.php?type=valoresprincipales')
+        .then((response) => response.json())
+        .then((data) => {   
+            let dolarPrice = parseFloat(data[1].casa.venta)
+            let cardAcumulator = '';
+            productsToShow.forEach((productArray) => {
+                cardAcumulator += `<div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <div class="d-flex justify-content-center mt-3">
+                    <img class="card-img-top w-50" src="${productArray.image}" alt="Guitarra ${productArray.model}"/>
+                    </div>
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product model-->
+                            <h5 class="fw-bolder">${productArray.brand} <br>${productArray.model}</br></h5>
+                            <!-- Product material-->
+                            <p>Cuerpo de ${productArray.bodyMaterial}</p>
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center">
+                            <input value="1" min="1" id="quantity-${productArray.id}" type="number" placeholder="Cantidad">
+                            <!-- Product price-->
+                            <p>$ ${dolarPrice * productArray.price}</p>
+                            <button onclick="addToCart(${productArray.id})" class="btn btn-secondary mt-auto">
+                            ${(productArray.stock <= 0) ? 'Sin Stock' : 'Agregar al Carrito'}
+                            </button>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <!-- Product actions-->
-            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                <div class="text-center">
-                    <input value="1" min="1" id="quantity-${productArray.id}" type="number" placeholder="Cantidad">
-                    <!-- Product price-->
-                    <p>$ ${productArray.price}</p>
-                    <button onclick="addToCart(${productArray.id})" class="btn btn-secondary mt-auto">
-                    ${(productArray.stock <= 0) ? 'Sin Stock' : 'Agregar al Carrito'}
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>`
-    });
-    showCards(cardAcumulator);
+            </div>`
+            });
+            showCards(cardAcumulator);
+            });
 }; 
 
 // Input search results
 function productToFind() {
     const inputContent = document.getElementById("product-to-find").value.toUpperCase().trim();
     const findedProducts = products.filter((product) => {
-        return (product.model.toUpperCase().match(inputContent) || 
-                product.brand.toUpperCase().match(inputContent) ||
-                product.category.toUpperCase().match(inputContent) ||
-                product.bodyMaterial.toUpperCase().match(inputContent));
-            });
+        return (( product.model + product.brand + product.bodyMaterial + product.category ).toUpperCase().match(inputContent));
+    });
     if(inputContent != '') {
         document.getElementById("tittle-products-to-show").innerHTML = `Resultados que coinciden con "${inputContent}"`;
         cardGenerator(findedProducts);
