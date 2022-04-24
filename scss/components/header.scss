@@ -7,6 +7,10 @@ header {
             .logoContainer{
                 background-color: $colorSecundario;
                 border-radius: 100%;
+                &:hover {
+                    transform: scale(102%);
+                    transition: all 0.5s;
+                }
                 .imgLogo {
                     margin: 0% auto;
                     width: 100%;
@@ -17,7 +21,7 @@ header {
                     }
                 }
             }
-            button {
+            .hamburger {
                 span{
                     .barsMenu{
                         width: 100%;
@@ -31,20 +35,60 @@ header {
                     font-family: $fontLogo;
                     text-align: center;
                     font-size: 1.5rem;
+                    letter-spacing: 0.1rem;
+                    &:hover {
+                        transform: translateY(1rem);
+                        transition: all 0.5s;
+                    }
                 }
             }
-        }
-        .carrito {
-            img {
-                width: 100%;
+            .cart-icon {
+                .cart-button {
+                    &:hover {
+                        transform: scale(105%);
+                        transition: all 0.5s;
+                    }
+                    &:hover {
+                        p {
+                            transform: rotateY(720deg);
+                            transition: all 1.5s;
+                        }
+                    }
+                    #cart-quantity {
+                        position: relative;
+                        right: 25%;
+                    }
+                }
             }
-        }
-    }
-    .input-search {
-        button {
-            a {
-                color: $colorSecundario;
+            .cart-modal {
+                div {
+                    div {
+                        .modal-header {
+                            .modal-title {
+                                font-family: $fontLogo;
+                                font-size: 2.5rem;
+                                letter-spacing: 0.5rem;
+                            }
+                        }  
+                        .modal-footer {
+                            p {
+                                font-weight: normal;
+                                #total-price {
+                                    font-size: 1rem;
+                                    font-weight: bold;
+                                }
+                            }
+                            button {
+                                background-color: $bgOpacity;
+                                &:hover {
+                                    transform: scale(105%);
+                                    transition: all 0.5s;
+                                }
+                            }
+                        }
+                    }
+                }
             }
-        }
+        } 
     }
 }

@@ -41,27 +41,29 @@
                                 alt="logo-guitarras"></a>
                     </div>
                 </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                <button class="navbar-toggler hamburger" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon menuExpand"><img class="barsMenu" src="multimedia/iconos/bars.png"
                             alt="menu hamburguesa"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-around seccionesContainer" id="navbarNavAltMarkup">
-                    <a id="filter-electric" href="#tittle-products-to-show">Guitarras Eléctricas</a>
-                    <a id="filter-acoustic" href="#tittle-products-to-show">Guitarras Acústicas</a>
-                    <a id="filter-classic" href="#tittle-products-to-show">Guitarras Criollas</a>
+                    <a onclick="filterCategory(electrics)" href="#tittle-products-to-show">Guitarras Eléctricas</a>
+                    <a onclick="filterCategory(acoustics)" href="#tittle-products-to-show">Guitarras Acústicas</a>
+                    <a onclick="filterCategory(classics)" href="#tittle-products-to-show">Guitarras Criollas</a>
                 </div>
 
                 <!-- Button trigger modal -->
-                <button type="button" class="btn d-flex align-items-center" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal">
-                    <img src="multimedia/iconos/carrito.png" alt="carrito de compras">
-                    <span id="cart-quantity" class="badge bg-danger text-white ms-1 rounded-pill">0</span>
-                </button>
+                <div class="cart-icon d-flex">
+                    <a href="#header" class="cart-button d-flex align-items-center position-relative"
+                        data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <img src="multimedia/iconos/carrito.png" alt="carrito de compras">
+                        <p id="cart-quantity" class="badge bg-danger text-white ms-1 rounded-pill">0</p>
+                    </a>
+                </div>
 
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                <div class="cart-modal modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
                         <div class="modal-content">
@@ -71,28 +73,23 @@
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <div class="container px-4 px-lg-5 mt-2 gridSectionGuitar">
-                                    <div id="modal-card" class="row row-cols-3 row-cols-md-3 row-cols-xl-3 align-items-center">
+                                <div class="container px-4 px-lg-5 mt-1 gridSectionGuitar">
+                                    <div id="modal-card"
+                                        class="row row-cols-3 row-cols-md-3 row-cols-xl-3 align-items-center">
 
                                     </div>
                                 </div>
                             </div>
-                            <div class="modal-footer d-flex justify-content-between align-items-center">
-                                <p id="dolar-value"></p>
-                                <div class="d-flex">
-                                    <p class="me-4 mt-3">Total a abonar: $ <span id="total-price">0</span></p>
-                                    <button type="button" class="btn btn-primary">Confirmar Compra</button>
-                                </div>
+                            <div class="modal-footer d-flex align-items-center">
+                                <p class="me-5">Total a abonar: <span id="total-price">0</span></p>
+                                <button onclick="shoppingConfirm()" type="button" class="btn btn-dark">Confirmar
+                                    Compra</button>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
         </nav>
-        <div class="d-flex input-search">
-            <input id="product-to-find" class="form-control me-2" type="search" placeholder="Buscá Tu Cuerda"
-                aria-label="Search">
-            <button class="btn btn-secondary" type="submit" onclick="productToFind()" name="data"><a href="#tittle-products-to-show">Buscar</a></button>
-        </div>
     </header>
     <!-- Fin de HEADER -->
 
@@ -116,16 +113,103 @@
 
         <!-- Sección productos a mostrar -->
         <section class="py-5 sectionContainer">
-
             <h2 id="tittle-products-to-show">Todas nuestras guitarras</h2>
-
-            <div class="container px-4 px-lg-5 mt-5 gridSectionGuitar">
+            <p id="style-order"></p>
+            <div class="container px-4 px-lg-5 mt-5 grid-section-guitar">
                 <div id="products-container"
-                    class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center filaProductos">
+                    class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center row-products">
                 </div>
             </div>
         </section>
-
+        <div class="offcanvas-container">
+            <div class="button-offcanvas d-flex align-items-center justify-content-center" type="button"
+                data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample">
+                <p>
+                    Filtros
+                </p>
+            </div>
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+                aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Filtros</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body mt-5">
+                    <div class="dropdown mt-3">
+                        <button class="filter-button btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-bs-toggle="dropdown">
+                            Marca
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a onclick="filterBrand(fender)" class="item-dropdown"
+                                    href="#tittle-products-to-show">Fender</a></li>
+                            <li><a onclick="filterBrand(gibson)" class="item-dropdown"
+                                    href="#tittle-products-to-show">Gibson</a></li>
+                            <li><a onclick="filterBrand(ibanez)" class="item-dropdown"
+                                    href="#tittle-products-to-show">Ibanez</a></li>
+                            <li><a onclick="filterBrand(jackson)" class="item-dropdown"
+                                    href="#tittle-products-to-show">Jackson</a></li>
+                            <li><a onclick="filterBrand(takamine)" class="item-dropdown"
+                                    href="#tittle-products-to-show">Takamine</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown mt-3">
+                        <button class="filter-button btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-bs-toggle="dropdown">
+                            Material
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a onclick="filterBodyMaterial(aliso)" class="item-dropdown"
+                                    href="#tittle-products-to-show">Aliso</a></li>
+                            <li><a onclick="filterBodyMaterial(arce)" class="item-dropdown"
+                                    href="#tittle-products-to-show">Arce</a></li>
+                            <li><a onclick="filterBodyMaterial(caoba)" class="item-dropdown"
+                                    href="#tittle-products-to-show">Caoba</a></li>
+                            <li><a onclick="filterBodyMaterial(maple)" class="item-dropdown"
+                                    href="#tittle-products-to-show">Maple</a></li>
+                            <li><a onclick="filterBodyMaterial(okoume)" class="item-dropdown"
+                                    href="#tittle-products-to-show">Okoume</a></li>
+                            <li><a onclick="filterBodyMaterial(sapele)" class="item-dropdown"
+                                    href="#tittle-products-to-show">Sapele</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown mt-3">
+                        <button class="filter-button btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-bs-toggle="dropdown">
+                            Categoría
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a onclick="filterCategory(acoustics)" class="item-dropdown"
+                                    href="#tittle-products-to-show">Acústicas</a></li>
+                            <li><a onclick="filterCategory(classics)" class="item-dropdown"
+                                    href="#tittle-products-to-show">Criollas</a></li>
+                            <li><a onclick="filterCategory(electrics)" class="item-dropdown"
+                                    href="#tittle-products-to-show">Eléctricas</a></li>
+                        </ul>
+                    </div>
+                    <div class="classify-products d-flex justify-content-between align-items-center mt-5 mb-5 me-3">
+                        <p>Ordenar por:</p>
+                        <a onclick="orderByLowerPrice()" class="d-block" href="#tittle-products-to-show"
+                            type="button">Menor
+                            Precio</a>
+                        <a onclick="orderByHigherPrice()" class="d-block" href="#tittle-products-to-show"
+                            type="button">Mayor
+                            Precio</a>
+                    </div>
+                    <div class="input-search-container d-flex input-search mt-5">
+                        <input id="product-to-find" class="form-control me-2" type="search"
+                            placeholder="Buscá Tu Cuerda" aria-label="Search" style="width: 20rem">
+                        <button class="btn btn-dark" type="submit" onclick="productToFind()" name="data"><a
+                                href="#tittle-products-to-show">Buscar</a></button>
+                    </div>
+                    <div class="clean-filters-container d-flex justify-content-center">
+                        <button onclick="cleanFilters()" class="btn btn-danger"><a
+                                href="#tittle-products-to-show">Limpiar Filtros</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div id="to-top">
             <a href="#header">To Top</a>
         </div>

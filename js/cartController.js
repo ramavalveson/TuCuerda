@@ -10,12 +10,12 @@ cartData();
 // Total Price of Cart
 function cartPrice() {
     // fetch para pasar el total del carrito a pesos argentinos
-    fetch('https://www.dolarsi.com/api/api.php?type=valoresprincipales')
+    fetch('https://api.bluelytics.com.ar/v2/latest')
         .then((response) => response.json())
         .then((data) => {   
-            let dolarPrice = parseFloat(data[1].casa.venta)
+            let dolarPrice = data.blue.value_sell;
             const totalCartPrice = cart.reduce((acc, productToAdd) => ( acc + (productToAdd.quantity * productToAdd.price) ), 0);
-            document.getElementById("total-price").innerHTML = dolarPrice * totalCartPrice;
+            document.getElementById("total-price").innerHTML = `$ ${Math.round(dolarPrice * totalCartPrice)}`;
         });
 };
 
@@ -28,10 +28,10 @@ function cartItemsQuantity() {
 // Card generator of Cart
 function cardGeneratorOfCart(productsOfCart) {
     // fetch para pasar el valor de los productos en las cards del carrito a pesos
-    fetch('https://www.dolarsi.com/api/api.php?type=valoresprincipales')
+    fetch('https://api.bluelytics.com.ar/v2/latest')
         .then((response) => response.json())
         .then((data) => {   
-            let dolarPrice = parseFloat(data[1].casa.venta)
+            let dolarPrice = data.blue.value_sell;
             let cardOfCartAcumulator = '';
             productsOfCart.forEach((productArray) => {
                 cardOfCartAcumulator += `<div class="col md-1 mb-5">
@@ -48,7 +48,7 @@ function cardGeneratorOfCart(productsOfCart) {
                             <!-- Product material-->
                             <p> Material predominante: ${productArray.bodyMaterial} </p>
                             <!-- Product price-->
-                            <p>$ ${dolarPrice * productArray.price}</p>
+                            <p>$ ${Math.round(dolarPrice * productArray.price)}</p>
                         </div>
                     </div>
                 </div>
@@ -127,7 +127,7 @@ function outOfStockButtonCart(addedProduct) {
     swal({
         icon: 'warning',
         title: 'Sin Stock',
-        text: `Lo sentimos, no contamos con más ${addedProduct.brand} ${addedProduct.model}!`,
+        text: `Lo sentimos, no contamos con más ${addedProduct.brand} ${addedProduct.model}!`
     })
 };
 
@@ -146,5 +146,13 @@ function removeProductFromCartToastify(product) {
     }).showToast();
 };
 
-
+//SweetAlert shopping confirm
+function shoppingConfirm() {
+    swal({
+        icon: 'success',
+        title: 'Felicitaciones! Confirmaste tu compra!',
+        text: `Te redireccionaremos a la plataforma de pago! Muchas gracias por confiar en TuCuerda!`,
+        buttons: 'Continuar con el Pago'
+    })
+};
 

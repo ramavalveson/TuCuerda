@@ -11,6 +11,10 @@ header nav div .logoContainer {
   background-color: #fff;
   border-radius: 100%;
 }
+header nav div .logoContainer:hover {
+  transform: scale(102%);
+  transition: all 0.5s;
+}
 header nav div .logoContainer .imgLogo {
   margin: 0% auto;
   width: 100%;
@@ -18,7 +22,7 @@ header nav div .logoContainer .imgLogo {
 header nav div .logoContainer .imgLogo a img {
   width: 100%;
 }
-header nav div button span .barsMenu {
+header nav div .hamburger span .barsMenu {
   width: 100%;
 }
 header nav div .seccionesContainer {
@@ -29,12 +33,42 @@ header nav div .seccionesContainer a {
   font-family: "Monoton", cursive;
   text-align: center;
   font-size: 1.5rem;
+  letter-spacing: 0.1rem;
 }
-header nav .carrito img {
-  width: 100%;
+header nav div .seccionesContainer a:hover {
+  transform: translateY(1rem);
+  transition: all 0.5s;
 }
-header .input-search button a {
-  color: #fff;
+header nav div .cart-icon .cart-button:hover {
+  transform: scale(105%);
+  transition: all 0.5s;
+}
+header nav div .cart-icon .cart-button:hover p {
+  transform: rotateY(720deg);
+  transition: all 1.5s;
+}
+header nav div .cart-icon .cart-button #cart-quantity {
+  position: relative;
+  right: 25%;
+}
+header nav div .cart-modal div div .modal-header .modal-title {
+  font-family: "Monoton", cursive;
+  font-size: 2.5rem;
+  letter-spacing: 0.5rem;
+}
+header nav div .cart-modal div div .modal-footer p {
+  font-weight: normal;
+}
+header nav div .cart-modal div div .modal-footer p #total-price {
+  font-size: 1rem;
+  font-weight: bold;
+}
+header nav div .cart-modal div div .modal-footer button {
+  background-color: rgba(39, 30, 30, 0.808);
+}
+header nav div .cart-modal div div .modal-footer button:hover {
+  transform: scale(105%);
+  transition: all 0.5s;
 }
 
 h1 {
@@ -43,6 +77,8 @@ h1 {
   font-family: "Monoton", cursive;
   margin: 3% 0% 2% 0%;
   text-align: center;
+  letter-spacing: 0.1rem;
+  word-spacing: 1rem;
 }
 
 .gridGuitarContainer {
@@ -82,46 +118,116 @@ h1 {
   text-align: center;
   color: #fff;
   margin-bottom: 2%;
+  letter-spacing: 0.1rem;
+  word-spacing: 1rem;
 }
-.sectionContainer .filter {
-  font-family: "Monoton", cursive;
+.sectionContainer #style-order {
   font-size: 1.5rem;
+  font-family: "Monoton", cursive;
+  text-align: center;
   color: #fff;
+  margin-bottom: 2%;
+  letter-spacing: 0.1rem;
+  word-spacing: 0.5rem;
 }
-.sectionContainer .gridSectionGuitar .filaProductos .colProductos {
-  margin-bottom: 5%;
-}
-.sectionContainer .gridSectionGuitar .cambiarSeccion {
-  position: sticky;
-  bottom: 0;
-}
-.sectionContainer .gridSectionGuitar .cambiarSeccion .tipoSeccion {
+
+.offcanvas-container {
   background-color: rgba(39, 30, 30, 0.808);
-  padding: 0.5rem;
-  z-index: 5;
+  border: solid 0.2rem #fff;
+  border-radius: 10%;
+  position: fixed;
+  bottom: 0.8rem;
+  left: 0.8rem;
+  z-index: 10;
+  box-shadow: 0.5rem 0.5rem 0.5rem;
 }
-.sectionContainer .gridSectionGuitar .cambiarSeccion .tipoSeccion:first-child {
-  margin-right: 5%;
+.offcanvas-container .button-offcanvas {
+  width: 7rem;
 }
-.sectionContainer .gridSectionGuitar .cambiarSeccion .tipoSeccion:hover {
-  transform: translateY(-0.5rem) scale(110%);
-  transition: all 0.8s;
-}
-.sectionContainer .gridSectionGuitar .cambiarSeccion .tipoSeccion a {
-  display: block;
-  color: #fff;
+.offcanvas-container .button-offcanvas p {
   font-family: "Monoton", cursive;
   font-size: 1rem;
+  color: #fff;
+  letter-spacing: 0.1rem;
+  padding-top: 1rem;
+}
+.offcanvas-container .offcanvas .offcanvas-header .offcanvas-title {
+  font-family: "Monoton", cursive;
+  font-size: 2rem;
+  letter-spacing: 0.5rem;
+}
+.offcanvas-container .offcanvas .offcanvas-body div .filter-button {
+  width: 30%;
+  background-color: rgba(39, 30, 30, 0.808);
+}
+.offcanvas-container .offcanvas .offcanvas-body div .filter-button:hover {
+  transform: scale(105%);
+  transition: all 0.5s;
+}
+.offcanvas-container .offcanvas .offcanvas-body div ul .item-dropdown {
+  display: block;
+  color: black;
+  padding: 1% 0% 1% 7.5%;
+  font-size: 0.9rem;
+}
+.offcanvas-container .offcanvas .offcanvas-body div ul .item-dropdown:hover {
+  background-color: rgba(39, 30, 30, 0.808);
+  color: #fff;
+}
+.offcanvas-container .offcanvas .offcanvas-body .classify-products p {
+  width: 34%;
+  text-align: center;
+  font-size: 1rem;
+  background-color: rgba(39, 30, 30, 0.808);
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+}
+.offcanvas-container .offcanvas .offcanvas-body .classify-products a {
+  color: #271e1e;
+  font-size: 0.9rem;
+}
+.offcanvas-container .offcanvas .offcanvas-body .classify-products a:hover {
+  font-weight: bold;
+}
+.offcanvas-container .offcanvas .offcanvas-body .classify-products a:active {
+  transform: scale(120%);
+}
+.offcanvas-container .offcanvas .offcanvas-body .input-search-container button {
+  background-color: rgba(39, 30, 30, 0.808);
+}
+.offcanvas-container .offcanvas .offcanvas-body .input-search-container button:hover {
+  transform: scale(105%);
+  transition: all 0.5s;
+}
+.offcanvas-container .offcanvas .offcanvas-body .input-search-container button a {
+  color: #fff;
+}
+.offcanvas-container .offcanvas .offcanvas-body .clean-filters-container button {
+  margin-top: 4rem;
+}
+.offcanvas-container .offcanvas .offcanvas-body .clean-filters-container button:hover {
+  transform: scale(105%);
+  transition: all 0.5s;
+}
+.offcanvas-container .offcanvas .offcanvas-body .clean-filters-container button a {
+  color: #fff;
 }
 
 #to-top {
   background-color: rgba(39, 30, 30, 0.808);
   border: solid 0.2rem #fff;
-  border-radius: 100%;
+  border-radius: 10%;
   position: fixed;
   bottom: 0.8rem;
   right: 0.8rem;
   text-align: center;
+  box-shadow: 0.5rem 0.5rem 0.5rem;
+}
+#to-top:active {
+  transform: translateY(0.5rem);
+  transition: all 0.3s;
+  box-shadow: 0.3rem 0.3rem 0.5rem;
 }
 #to-top a {
   display: block;
@@ -129,6 +235,7 @@ h1 {
   font-size: 1rem;
   color: #fff;
   padding: 2%;
+  letter-spacing: 0.1rem;
 }
 
 footer {
@@ -136,7 +243,7 @@ footer {
   padding: 2%;
 }
 footer .gridContainer {
-  width: 90%;
+  width: 80%;
   margin: 0% auto;
   color: #fff;
   display: grid;
