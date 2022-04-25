@@ -4,59 +4,43 @@
 
 const products = [
     // Electric Guitars
-    { id: 1, model: 'Rhoads RRT-5', brand: 'Jackson', category: 'electrica', bodyMaterial: 'Caoba', price: 2399, stock: 3, quantity: 0, image: 'multimedia/imagenes/rhoads-rrt-5.png' },
-    { id: 2, model: 'Dinky Arch Top JS32Q DKA HT', brand: 'Jackson', category: 'electrica', bodyMaterial: 'Caoba', price: 2599, stock: 8, quantity: 0, image: 'multimedia/imagenes/dinky-arch-top-js32q-dka-ht.png' },
-    { id: 3, model: 'American Ultra Stratocaster', brand: 'Fender', category: 'electrica', bodyMaterial: 'Aliso', price: 2099, stock: 4, quantity: 0, image: 'multimedia/imagenes/stratocaster-ultra.jpg' },
-    { id: 4, model: 'American Professional II Telecaster', brand: 'Fender', category: 'electrica', bodyMaterial: 'Aliso', price: 1699, stock: 1, quantity: 0, image: 'multimedia/imagenes/american-professional-ll-telecaster.jpg' },
-    { id: 5, model: 'American Professional II Jazzmaster', brand: 'Fender', category: 'electrica', bodyMaterial: 'Aliso', price: 1799, stock: 4, quantity: 0, image: 'multimedia/imagenes/american-professional-ll-jazzmaster.jpg' },
-    { id: 6, model: 'American Performer Telecaster', brand: 'Fender', category: 'electrica', bodyMaterial: 'Aliso', price: 1399, stock: 2, quantity: 0, image: 'multimedia/imagenes/american-performer-telecaster.jpg' },
-    { id: 7, model: 'Player Plus Meteora HH', brand: 'Fender', category: 'electrica', bodyMaterial: 'Aliso', price: 1149, stock: 8, quantity: 0, image: 'multimedia/imagenes/player-plus-meteora-hh.jpg' },
-    { id: 8, model: 'American Ultra Luxe Telecaster Floyd Rose HH', brand: 'Fender', category: 'electrica', bodyMaterial: 'Aliso', price: 2599, stock: 1, quantity: 0, image: 'multimedia/imagenes/american-ultra-luxe-telecaster-floyd-rose-hh.jpg' },
-    { id: 9, model: 'Ben Gibbard Mustang', brand: 'Fender', category: 'electrica', bodyMaterial: 'Arce', price: 1199, stock: 2, quantity: 0, image: 'multimedia/imagenes/ben-gibbard-mustang.jpg' },
-    { id: 10, model: 'XPTB620', brand: 'Ibanez', category: 'electrica', bodyMaterial: 'Okoume', price: 2799, stock: 3, quantity: 0, image: 'multimedia/imagenes/xptb620.png' },
-    { id: 11, model: 'Les Paul 70s Deluxe - 70s Cherry Sunburst', brand: 'Gibson', category: 'electrica', bodyMaterial: 'Caoba', price: 2699, stock: 5, quantity: 0, image: 'multimedia/imagenes/les-paul-70s-deluxe-70s-cherry-sunburst.jpg' },
-    { id: 12, model: 'SG Standard 61 Maestro Vibrola - Vintage Cherry', brand: 'Gibson', category: 'electrica', bodyMaterial: 'Caoba', price: 2199, stock: 4, quantity: 0, image: 'multimedia/imagenes/sg-standard-61-maestro-vibrola-vintage-cherry.jpg' },
-    { id: 13, model: '70s Explorer - Ebony', brand: 'Gibson', category: 'electrica', bodyMaterial: 'Caoba', price: 2199, stock: 6, quantity: 0, image: 'multimedia/imagenes/70s-explorer-ebony.jpg' },
-    { id: 14, model: 'Firebird Custom Ebony Fingerboard Gloss - Ebony', brand: 'Gibson', category: 'electrica', bodyMaterial: 'Caoba', price: 5299, stock: 1, quantity: 0, image: 'multimedia/imagenes/firebird-custom-w-ebony-fingerboard-gloss -ebony.jpg' },
-    { id: 15, model: 'JEM7VP', brand: 'Ibanez', category: 'electrica', bodyMaterial: 'Aliso', price: 5699, stock: 1, quantity: 0, image: 'multimedia/imagenes/jem7vp.png' },
-    { id: 16, model: 'GRGM21M', brand: 'Ibanez', category: 'electrica', bodyMaterial: 'Maple', price: 1799, stock: 6, quantity: 0, image: 'multimedia/imagenes/grgm21m.png' },
+    { id: 1, model: 'Rhoads RRT-5', brand: 'Jackson', category: 'electrica', bodyMaterial: 'Caoba', price: 2399, stock: 3, quantity: 0, image: 'multimedia/imagenes/rhoads-rrt-5.png', detail: 'Elegido específicamente por su increíble sonido, un par de modernas pastillas humbucking Seymour Duncan® Distortion impulsan la voz de esta guitarra, combinándose para un tono altamente equilibrado y flexible, con un montón de alto rendimiento para limpiezas prístinas y distorsión gruñente. El RRT-5 también cuenta con conmutación de pastilla de palanca de tres vías y un puente de estilo TOM compensado y ajustable por Jackson® con pieza trasera anclada.' },
+    { id: 2, model: 'Dinky Arch Top JS32Q DKA HT', brand: 'Jackson', category: 'electrica', bodyMaterial: 'Caoba', price: 2599, stock: 8, quantity: 0, image: 'multimedia/imagenes/dinky-arch-top-js32q-dka-ht.png', detail: 'El JS Series Dinky™ Arch Top JS32Q DKA HT tiene un cuerpo de álamo con una hermosa parte superior arqueada de arce acolchado y un cuello de velocidad de arce atornillado con junta de bufanda y refuerzo de grafito para una estabilidad sólida como una roca. Albergando 24 trastes jumbo e incrustaciones de aleta de tiburón perlado, el diapasón de amaranto unido al radio compuesto de 12 "-16" se aplana gradualmente hacia el talón desde su perfil más redondeado en la tuerca. Esto hace que los acordes y riffs sean cómodos y naturales cerca de la tuerca, con una articulación óptima de la trituración y una flexión más cerca del talón.' },
+    { id: 3, model: 'American Ultra Stratocaster', brand: 'Fender', category: 'electrica', bodyMaterial: 'Aliso', price: 2099, stock: 4, quantity: 0, image: 'multimedia/imagenes/stratocaster-ultra.jpg', detail: 'La American Ultra Luxe Stratocaster cuenta con un perfil de cuello "D" aumentado único con bordes de diapasón ultra enrollados para una comodidad de juego sin fin y un talón de cuello cónico que permite un fácil acceso al registro más alto. Un veloz diapasón de radio compuesto de 10 "-14" con 22 trastes de acero inoxidable de jumbo medio significa un soloing sin esfuerzo y preciso, mientras que las pastillas Ultra Noiseless™ Vintage y las opciones avanzadas de cableado brindan infinitas posibilidades tonales, sin zumbido. Los contornos esculpidos de la parte trasera de la carrocería son tan hermosos como funcionales, sumamente cómodos en cualquier posición de juego. Otras características incluyen máquinas de ajuste de bloqueo selladas, hardware cromado y tuerca TUSQ™.' },
+    { id: 4, model: 'American Professional II Telecaster', brand: 'Fender', category: 'electrica', bodyMaterial: 'Aliso', price: 1699, stock: 1, quantity: 0, image: 'multimedia/imagenes/american-professional-ll-telecaster.jpg', detail: 'Nuestro popular cuello Deep "C" ahora luce bordes de diapasón lisos enrollados, un acabado satinado "Super-Natural" y un talón de cuello recién esculpido para una sensación sumamente cómoda y fácil acceso al registro superior. Las nuevas pastillas de bobina única V-Mod II Telecaster son más articuladas que nunca al tiempo que ofrecen el twang, snap y snarl que hicieron famosa a la Tele. El nuevo puente de carga superior / cuerda con sillines "bala" compensados es nuestro puente Tele más cómodo y flexible hasta la fecha, conservando el tono clásico del sillín de latón y proporcionando una excelente entonación y opciones de configuración flexibles, lo que le permite adaptar la tensión y el tono de cada cuerda a su gusto.' },
+    { id: 5, model: 'American Professional II Jazzmaster', brand: 'Fender', category: 'electrica', bodyMaterial: 'Aliso', price: 1799, stock: 4, quantity: 0, image: 'multimedia/imagenes/american-professional-ll-jazzmaster.jpg', detail: 'Nuestro popular cuello Deep "C" ahora luce bordes de diapasón lisos enrollados, un acabado satinado "Super-Natural" y un talón de cuello recién esculpido para una sensación sumamente cómoda y fácil acceso al registro superior. Las nuevas pastillas de una sola bobina V-Mod II Jazzmaster son más articuladas que nunca, al tiempo que ofrecen el brillo y el timbre por los que el Jazzmaster es conocido. La pastilla de puente tiene una función de toque que permite tanto un sonido potente y garganta como un sonido vintage de menor salida. Con solo pulsar un interruptor, el circuito de ritmo coloca ambas pastillas en serie para un tono más grueso con una mayor salida, controlada por ollas de rodillos de volumen y tono independientes. El nuevo sistema Panorama™ Tremolo con brazo de trémolo pop-in aumenta drásticamente el rango de vibrato disponible, lo que permite inmersiones profundas de estilo Strat, además del clásico warble Jazzmaster.' },
+    { id: 6, model: 'American Performer Telecaster', brand: 'Fender', category: 'electrica', bodyMaterial: 'Aliso', price: 1399, stock: 2, quantity: 0, image: 'multimedia/imagenes/american-performer-telecaster.jpg', detail: 'La American Performer Telecaster, creada por Corona, Ca., combina un tono Fender excepcional y una sensación auténtica con materiales modernos y características orientadas al jugador diseñadas para inspirar mientras impulsa su juego a nuevas alturas.' },
+    { id: 7, model: 'Player Plus Meteora HH', brand: 'Fender', category: 'electrica', bodyMaterial: 'Aliso', price: 1149, stock: 8, quantity: 0, image: 'multimedia/imagenes/player-plus-meteora-hh.jpg', detail: 'Un conjunto de potentes pastillas de humbucking Fireball™ combinan la cantidad perfecta de ganancia con una gran claridad de nota de cuerda a cuerda. Un interruptor S-1™ activa la división de la bobina, ofreciendo tonos de una sola bobina cristalinos. El sedoso cuello satinado Moderno "C" se adapta a su mano como un guante, con bordes lisos enrollados para una comodidad suprema. El diapasón de radio de 12" y los 22 trastes jumbo medianos facilitan los cables fluidos y ahogan las curvas libres. Suave y sensible, el trémolo de 2 puntos proporciona efectos de vibrato clásicos, mientras que los afinadores de bloqueo proporcionan una afinación sólida como una roca y hacen que los cambios de cuerda sean rápidos y fáciles.' },
+    { id: 8, model: 'American Ultra Luxe Telecaster Floyd Rose HH', brand: 'Fender', category: 'electrica', bodyMaterial: 'Aliso', price: 2599, stock: 1, quantity: 0, image: 'multimedia/imagenes/american-ultra-luxe-telecaster-floyd-rose-hh.jpg', detail: 'Este modelo cuenta con un perfil de cuello "D" aumentado único con bordes de diapasón ultra enrollados para una comodidad de juego sin fin, y un talón de cuello cónico permite un fácil acceso al registro más alto. Un veloz diapasón de radio compuesto de 10 "-14" con 22 trastes de acero inoxidable de jumbo medio significa un soloing sin esfuerzo y preciso, mientras que las pastillas humbucking Custom Double Tap™ y las opciones avanzadas de cableado brindan infinitas posibilidades tonales, sin zumbido. El sistema Original Floyd Rose Tremolo permite efectos de vibrato de precisión mientras se mantiene perfectamente en sintonía. Los contornos esculpidos de la carrocería trasera son tan hermosos como funcionales. Este instrumento versátil y de última generación te inspirará a llevar tu forma de tocar a nuevas alturas.' },
+    { id: 9, model: 'Ben Gibbard Mustang', brand: 'Fender', category: 'electrica', bodyMaterial: 'Arce', price: 1199, stock: 2, quantity: 0, image: 'multimedia/imagenes/ben-gibbard-mustang.jpg', detail: 'Con un diseño de cuerpo de ceniza con cámara para una mayor resonancia y un peso reducido y un moderno mástil de arce en forma de "C" de una sola pieza de 22 trastes con diapasón de radio de 9.5"y trastes jumbo medianos, esta guitarra es una intérprete de escenario cómoda y versátil. La electrónica incluye un conjunto de pastillas Ben Gibbard Mustang personalizadas de inspiración vintage y un interruptor selector de pastilla giratoria de 3 vías listo para el escenario. Lo que parece ser un puente Mustang de estilo vintage es en realidad una innovadora configuración de cola dura modificada, que proporciona estabilidad, entonación y sostenimiento sólidos como una roca.' },
+    { id: 10, model: 'XPTB620', brand: 'Ibanez', category: 'electrica', bodyMaterial: 'Okoume', price: 2799, stock: 3, quantity: 0, image: 'multimedia/imagenes/xptb620.png', detail: 'El cuello Wizard delgado, plano y rápido de Ibáñez es fuerte y resistente y ofrece una jugabilidad ilimitada para jugadores exigentes. El ébano produce bajos y medios ajustados con un fuerte ataque en el extremo superior y presenta una respuesta rápida y un rico sustain. El cuerpo de Okoume proporciona un sonido brillante y sólido. Las pastillas DiMarzio® D-Activator tienen un sonido potente, limpio y abierto con excelentes matices armónicos y una respuesta de gama baja muy ajustada. Los cabezales de la máquina Gotoh® proporcionan súper precisión, sensación suave y una espalda mínima exuberante.' },
+    { id: 11, model: 'Les Paul 70s Deluxe - 70s Cherry Sunburst', brand: 'Gibson', category: 'electrica', bodyMaterial: 'Caoba', price: 2699, stock: 5, quantity: 0, image: 'multimedia/imagenes/les-paul-70s-deluxe-70s-cherry-sunburst.jpg', detail: 'Lanzado por primera vez en 1969, el Deluxe vio la introducción del mini humbucker™ a la línea les Paul. Los mini humbuckers conservan el rendimiento sin zumbido de sus primos de tamaño completo, pero con una tonalidad algo más clara y brillante. El nuevo Deluxe tiene características que se inspiraron en los primeros modelos de la década de 1970, con un cuerpo de caoba en relieve sin peso y una parte superior de arce encuadernada, un cuello de caoba encuadernado con un perfil C redondeado, sintonizadores Keystone de estilo vintage, tuerca Graph Tech® y un diseño de control tradicional de Les Paul con controles de 2 volúmenes y 2 tonos cableados con condensadores Orange Drop®. Disponible en los acabados clásicos Goldtop y 70s Cherry Sunburst de laca de nitrocelulosa brillante.' },
+    { id: 12, model: 'SG Standard 61 Maestro Vibrola - Vintage Cherry', brand: 'Gibson', category: 'electrica', bodyMaterial: 'Caoba', price: 2199, stock: 4, quantity: 0, image: 'multimedia/imagenes/sg-standard-61-maestro-vibrola-vintage-cherry.jpg', detail: 'El SG™ Standard 61 Maestro™ Vibrola™ regresa al diseño clásico que lo hizo relevante, tocado y amado, dando forma al sonido a través de generaciones y géneros de música. Como su nombre lo indica, la Gibson SG Standard 61 Maestro Vibrola agrega capacidad de vibrato a la SG Standard 61. El Maestro Vibrola ofrece suaves efectos de vibrato y el estilo clásico del grabado de lira en la cubierta de la pieza de cola. Las características estándar incluyen un cuello de caoba SlimTaper™ y un diapasón de palisandro atado. El cuerpo de caoba presenta una bufanda corporal profundamente esculpida, un protector de lágrima de 5 capas y una articulación del cuello de traste 22. El hardware niquelado incluye un puente Tune-O-Matic™ de estilo clásico y sintonizadores Keystone, además de la pieza de cola Maestro Vibrola. Las pastillas son humbuckers™ 61R y 61T para una voz clásica con potencia adicional y gama alta. Los controles cuentan con potenciómetros cónicos de audio y condensadores Orange Drop®.' },
+    { id: 13, model: '70s Explorer - Ebony', brand: 'Gibson', category: 'electrica', bodyMaterial: 'Caoba', price: 2199, stock: 6, quantity: 0, image: 'multimedia/imagenes/70s-explorer-ebony.jpg', detail: 'Ha viajado a escenarios de todo el mundo, pero el icono de los años 70 está de vuelta para ser explorado por una nueva generación de jugadores. Con un par de humbuckers Tribute de los™ años 70, cableados a mano con condensadores Orange Drop®, este Explorer™ pide que se reproduzca fuerte. Con su acabado de laca de nitrocelulosa brillante de ébano, diapasón de palisandro encuadernado, perillas Speed negras y hardware cromado, se ve tan icónico como la generación de música que ayudó a crear.' },
+    { id: 14, model: 'Firebird Custom Ebony Fingerboard Gloss - Ebony', brand: 'Gibson', category: 'electrica', bodyMaterial: 'Caoba', price: 5299, stock: 1, quantity: 0, image: 'multimedia/imagenes/firebird-custom-w-ebony-fingerboard-gloss -ebony.jpg', detail: 'La Firebird Custom conserva la forma aerodinámica característica que la convierte en una de las guitarras visualmente más atractivas de Gibson, al tiempo que agrega citas personalizadas de lujo y potentes humbuckers para un mayor impacto visual y sonoro. La construcción de caoba sólida está adornada con encuadernación de múltiples capas, herrajes de oro, incrustaciones de perlas y un diapasón de ébano sólido. Es audaz, hermoso y un viaje increíblemente divertido.' },
+    { id: 15, model: 'JEM7VP', brand: 'Ibanez', category: 'electrica', bodyMaterial: 'Aliso', price: 5699, stock: 1, quantity: 0, image: 'multimedia/imagenes/jem7vp.png', detail: 'Un diapasón de ébano presenta una respuesta rápida y una gran articulación. El cuello De arce / nogal Wizard 5pc con varillas KTS™ TITANIUM proporciona una estabilidad sólida como una roca absoluta que proporciona un juego extra suave. La firma de Steve Vai cuenta con humbuckers DiMarzio® Evolution® en las posiciones del puente y el cuello y una bobina simple DiMarzio® Evolution® en la posición central para una amplia gama de tonos rock. JEM7VP le permitirá gritar o gemir con el puente Edge y la innovadora cavidad del trémolo de la Garra de León, lo que permite que los lanzamientos se eleven o bajen radicalmente sin obstrucción.' },
+    { id: 16, model: 'GRGM21M', brand: 'Ibanez', category: 'electrica', bodyMaterial: 'Maple', price: 1799, stock: 6, quantity: 0, image: 'multimedia/imagenes/grgm21m.png', detail: 'El cuello de arce proporciona estabilidad y carácter tonal brillante. El puente F106 enriquece el sostenimiento. El ajuste de la altura de la cuerda se puede hacer de forma fácil e independiente. Las pastillas Ibanez Infinity ofrecen un sonido preciso y ajustado con una dinámica excelente. Incluso bajo configuraciones pesadas, no pierden claridad tonal.' },
     // Acoustic Guitars
-    { id: 17, model: 'GD11M-NS', brand: 'Takamine', category: 'acustica', bodyMaterial: 'Caoba', price: 599, stock: 8, quantity: 0, image: 'multimedia/imagenes/takamine-1.png' },
-    { id: 18, model: 'GD10CE-NS', brand: 'Takamine', category: 'acustica', bodyMaterial: 'Caoba', price: 549, stock: 7, quantity: 0, image: 'multimedia/imagenes/takamine-2.png' },
-    { id: 19, model: 'GF15CE-BLK', brand: 'Takamine', category: 'acustica', bodyMaterial: 'Caoba', price: 649, stock: 6, quantity: 0, image: 'multimedia/imagenes/takamine-3.png' },
-    { id: 20, model: 'G530SBF', brand: 'Takamine', category: 'acustica', bodyMaterial: 'Caoba', price: 749, stock: 3, quantity: 0, image: 'multimedia/imagenes/takamine-4.png' },
-    { id: 21, model: 'CD-60SCE DREADNOUGHT', brand: 'Fender', category: 'acustica', bodyMaterial: 'Caoba', price: 349, stock: 9, quantity: 0, image: 'multimedia/imagenes/fender-acoustic-1.jpg' },
-    { id: 22, model: 'REDONDO PLAYER', brand: 'Fender', category: 'acustica', bodyMaterial: 'Caoba', price: 449, stock: 4, quantity: 0, image: 'multimedia/imagenes/fender-acoustic-2.jpg' },
-    { id: 23, model: 'NEWPORTER SPECIAL MAHOGANY', brand: 'Fender', category: 'acustica', bodyMaterial: 'Caoba', price: 749, stock: 2, quantity: 0, image: 'multimedia/imagenes/fender-acoustic-3.jpg' },
-    { id: 24, model: 'AEWC400', brand: 'Ibanez', category: 'acustica', bodyMaterial: 'Maple', price: 599, stock: 5, quantity: 0, image: 'multimedia/imagenes/ibanez-acoustic-1.png' },
-    { id: 25, model: 'TCM50', brand: 'Ibanez', category: 'acustica', bodyMaterial: 'Sapele', price: 849, stock: 1, quantity: 0, image: 'multimedia/imagenes/ibanez-acoustic-2.png' },
-    { id: 26, model: 'AAD50CE', brand: 'Ibanez', category: 'acustica', bodyMaterial: 'Sapele', price: 1199, stock: 4, quantity: 0, image: 'multimedia/imagenes/ibanez-acoustic-3.png' },
-    { id: 27, model: 'PA230E', brand: 'Ibanez', category: 'acustica', bodyMaterial: 'Okoume', price: 649, stock: 7, quantity: 0, image: 'multimedia/imagenes/ibanez-acoustic-4.png' },
-    { id: 28, model: 'AEG5012', brand: 'Ibanez', category: 'acustica', bodyMaterial: 'Okoume', price: 799, stock: 3, quantity: 0, image: 'multimedia/imagenes/ibanez-acoustic-5.png' },
-    { id: 29, model: 'CD-140SCE', brand: 'Fender', category: 'acustica', bodyMaterial: 'Caoba', price: 449, stock: 8, quantity: 0, image: 'multimedia/imagenes/fender-acoustic-4.jpg' },
+    { id: 17, model: 'GD11M-NS', brand: 'Takamine', category: 'acustica', bodyMaterial: 'Caoba', price: 599, stock: 8, quantity: 0, image: 'multimedia/imagenes/takamine-1.png', detail: 'La forma de cuerpo más popular del último medio siglo, el Dreadnought ofrece un extremo bajo fuerte con mucho volumen.' },
+    { id: 18, model: 'GD10CE-NS', brand: 'Takamine', category: 'acustica', bodyMaterial: 'Caoba', price: 549, stock: 7, quantity: 0, image: 'multimedia/imagenes/takamine-2.png', detail: 'Una excelente opción para cualquier jugador que busque una guitarra acústica / eléctrica asequible que funcione muy por encima de su precio, la GD10CE cuenta con una parte superior de abeto selecta y una parte posterior y laterales de caoba para un sonido completo y equilibrado. El delgado cuello de caoba satinado y el diapasón ovangkol de 12"de radio proporcionan una gran sensación y jugabilidad, mientras que el sistema de preamplificador Takamine TP-4T incorporado le brinda un sintonizador incorporado con controles de volumen y tono y un interruptor de corte medio para un excelente rendimiento amplificado.' },
+    { id: 19, model: 'GF15CE-BLK', brand: 'Takamine', category: 'acustica', bodyMaterial: 'Caoba', price: 649, stock: 6, quantity: 0, image: 'multimedia/imagenes/takamine-3.png', detail: 'Este acústico-eléctrico de aspecto elegante y negro brillante presenta una parte superior de abeto sólido, parte posterior y laterales de caoba y el versátil preamplificador y sintonizador TP-4T de 3 bandas, todo dentro del popular y compacto estilo de cuerpo FXC. Una gran opción para cualquiera que busque el sonido bien equilibrado de una guitarra de cuerpo pequeño. El FXC está muy cerca de las proporciones tradicionales del Gran Concierto. Excelente control de retroalimentación con un tono acústico verdadero y cálido.' },
+    { id: 20, model: 'G530SBF', brand: 'Takamine', category: 'acustica', bodyMaterial: 'Caoba', price: 749, stock: 3, quantity: 0, image: 'multimedia/imagenes/takamine-4.png', detail: 'Para los jugadores que buscan una guitarra cómoda pero de sonido completo que ofrezca algo extra especial, la G530SBF cuenta con una parte superior de abeto sólido, lados de nogal / arce negro y un llamativo nogal negro / mapleback de tres piezas. El delgado cuello de caoba y el diapasón de laurel atado de 12 "de radio proporcionan una gran sensación y jugabilidad, mientras que el diseño de sillín dividido del puente de laurel proporciona una entonación superior para acordes de sonido más dulce y carreras de una sola nota.' },
+    { id: 21, model: 'CD-60SCE DREADNOUGHT', brand: 'Fender', category: 'acustica', bodyMaterial: 'Caoba', price: 349, stock: 9, quantity: 0, image: 'multimedia/imagenes/fender-acoustic-1.jpg', detail: 'Combinando una potente electrónica a bordo, incluido un sintonizador incorporado, con un gran tono y una fácil jugabilidad, el CD-60SCE All-Mahogany es ideal para jugadores de nivel principiante a intermedio que están listos para conectarse. Con un cuerpo de un solo corte para un fácil acceso con traste superior, una parte superior de caoba sólida de sonido cálido, cuello fácil de tocar y parte posterior y laterales de caoba, el CD-60SCE es perfecto para el sofá, la playa o la cafetería, en cualquier lugar donde desee la jugabilidad y el sonido clásicos de Fender.' },
+    { id: 22, model: 'REDONDO PLAYER', brand: 'Fender', category: 'acustica', bodyMaterial: 'Caoba', price: 449, stock: 4, quantity: 0, image: 'multimedia/imagenes/fender-acoustic-2.jpg', detail: 'Audaz y descarado, el sonido de este dreadnought acústico fue diseñado para inspirar desde el momento en que lo recoges. Con una sólida tapa de abeto, parte posterior y laterales de caoba, y 6 cabezales en línea, el Redondo Player tiene una voz rica y dominante que llena cualquier habitación. El cuello de caoba presenta un perfil cómodo y delgado en forma de "C" cónico, inspirado en el legado eléctrico de Fender.' },
+    { id: 23, model: 'NEWPORTER SPECIAL MAHOGANY', brand: 'Fender', category: 'acustica', bodyMaterial: 'Caoba', price: 749, stock: 2, quantity: 0, image: 'multimedia/imagenes/fender-acoustic-3.jpg', detail: 'Explore su creatividad individual con el aspecto audaz y el sonido inspirador del Newporter Special. Con una parte superior de caoba sólida, la parte posterior y los lados de caoba, la forma del cuerpo de Newporter de tamaño mediano proporciona una voz equilibrada que es articulada y poderosa. Diseñado para la interpretación, también incluye un sistema de preamplificador premium diseñado por Fender y Fishman® con voz específica para la forma del cuerpo del Newporter, lo que le permite reproducir el sonido natural de la guitarra cuando se conecta a un amplificador. El cuello de caoba presenta un perfil cómodo y delgado en forma de "C" cónico, inspirado en el legado eléctrico de Fender.' },
+    { id: 24, model: 'AEWC400', brand: 'Ibanez', category: 'acustica', bodyMaterial: 'Maple', price: 599, stock: 5, quantity: 0, image: 'multimedia/imagenes/ibanez-acoustic-1.png', detail: 'El preamplificador Ibanez AEQ-SP2 ofrece una excelente reproducción sónica y control de las características tonales y un fácil funcionamiento. El cuello de confort asimétrico AEWC ofrece una mayor comodidad y jugabilidad. También está diseñado para hacer que cada nota a través del diapasón sea fácilmente accesible y esté al alcance. Los trastes grandes contribuyen a una jugabilidad suave, especialmente para el fraseo que implica una serie de notas rápidas y sucesivas. La carrocería AEWC presenta cortes de contorno especializados y ergonómicos, y el corte original de Ibanez es un diseño especialmente adaptado que ofrece un acceso superior a posiciones de traste más altas.' },
+    { id: 25, model: 'TCM50', brand: 'Ibanez', category: 'acustica', bodyMaterial: 'Sapele', price: 849, stock: 1, quantity: 0, image: 'multimedia/imagenes/ibanez-acoustic-2.png', detail: 'La pastilla magnética AP2 reproduce perfectamente el sonido natural y cálido de una guitarra acústica. Purpleheart produce una rica gama media con una gama alta nítida. Estos pines realmente son una ventaja sobre los pines anticuados. Los pines Advantage™ son más fáciles de sacar y más fáciles de colocar que los pines estándar. Un extremo especial en forma de bulbo hace que el pasador sea fácil de agarrar y también evita que el pasador se empuje demasiado lejos. Lo mejor de todo es que con Advantage™ el pasador y la cuerda se mantienen.' },
+    { id: 26, model: 'AAD50CE', brand: 'Ibanez', category: 'acustica', bodyMaterial: 'Sapele', price: 1199, stock: 4, quantity: 0, image: 'multimedia/imagenes/ibanez-acoustic-3.png', detail: 'A través de un riguroso proceso de I + D que abarca varios años, Ibanez ha reimaginado el Dreadnought desde cero, persiguiendo la altura de un sonido rico, un extremo bajo robusto y un tono rico. Esta nueva forma del cuerpo se llama Grand Dreadnought. Proporcionalmente, el cuerpo del Grand Dreadnought es un 5% más grande que un dreadnought estándar, lo que permite más volumen, un tono más rico y una respuesta de gama baja más potente. También es extremadamente cómodo de jugar gracias a la amplia consideración dada a su ergonomía.' },
+    { id: 27, model: 'PA230E', brand: 'Ibanez', category: 'acustica', bodyMaterial: 'Okoume', price: 649, stock: 7, quantity: 0, image: 'multimedia/imagenes/ibanez-acoustic-4.png', detail: 'El cuello african Mahogany y Pau Ferro 5pc ha mejorado la durabilidad. Macassar Ebony produce bajos ajustados y rango medio junto con un fuerte ataque en los altos y una respuesta rápida con un rico sustain. Para un mejor sonido de percusión, el puente de ébano de Macassar cuenta con un sistema de carga superior sin una pinza de puente. También ofrece un método rápido y fácil para los cambios de cadena.' },
+    { id: 28, model: 'AEG5012', brand: 'Ibanez', category: 'acustica', bodyMaterial: 'Okoume', price: 799, stock: 3, quantity: 0, image: 'multimedia/imagenes/ibanez-acoustic-5.png', detail: 'El pequeño y simple preamplificador tiene solo dos perillas de control, volumen y forma. Este control de tono de un vistazo ofrece un sonido acústico natural en la posición central. Permite a los jugadores ajustar el tono fácilmente y les permite pasar de tonos bajos, gordos y potentes a un sonido brillante y nítido mientras ajustan solo una perilla. Un nuevo sintonizador integrado fácil de leer con LCD (pantalla de cristal líquido) se encuentra en el preamplificador.' },
+    { id: 29, model: 'CD-140SCE', brand: 'Fender', category: 'acustica', bodyMaterial: 'Caoba', price: 449, stock: 8, quantity: 0, image: 'multimedia/imagenes/fender-acoustic-4.jpg', detail: 'El CD-140SCE amplía las características de sus hermanos con la electrónica Fishman® CD-1 mejorada, la parte posterior y los lados de nogal y la adición de una carcasa dura. El cuerpo de dreadnought de corte único y la parte superior de abeto sólido proporcionan un tono robusto, y el cuello fácil de tocar es cómodo para todos los estilos de juego. Rematado con un protector de pico de carey y un cubrecabezas de nogal, el CD-140SCE está listo para lo que sea que le lances, en casa o en el escenario.' },
     // Classical Guitar
-    { id: 30, model: 'CN-60S', brand: 'Fender', category: 'criolla', bodyMaterial: 'Caoba', price: 229, stock: 9, quantity: 0, image: 'multimedia/imagenes/fender-classical-1.jpg' },
-    { id: 31, model: 'FA-15N 3/4 NYLON', brand: 'Fender', category: 'criolla', bodyMaterial: 'Caoba', price: 179, stock: 8, quantity: 0, image: 'multimedia/imagenes/fender-classical-2.jpg' },
-    { id: 32, model: 'GA35TCE', brand: 'Ibanez', category: 'criolla', bodyMaterial: 'Sapele', price: 379, stock: 7, quantity: 0, image: 'multimedia/imagenes/ibanez-classical-1.png' },
-    { id: 33, model: 'GA6CE', brand: 'Ibanez', category: 'criolla', bodyMaterial: 'Sapele', price: 289, stock: 4, quantity: 0, image: 'multimedia/imagenes/ibanez-classical-2.png' },
-    { id: 34, model: 'GA5TCE', brand: 'Ibanez', category: 'criolla', bodyMaterial: 'Sapele', price: 439, stock: 3, quantity: 0, image: 'multimedia/imagenes/ibanez-classical-3.png' }
+    { id: 30, model: 'CN-60S', brand: 'Fender', category: 'criolla', bodyMaterial: 'Caoba', price: 229, stock: 9, quantity: 0, image: 'multimedia/imagenes/fender-classical-1.jpg', detail: 'Los modelos Classic Design CN combinan la fácil jugabilidad y el tono distintivo de las cuerdas de nylon con la comodidad del espaciado de las cuerdas de acero. Hemos reemplazado los mástiles típicamente anchos que normalmente se encuentran en las guitarras clásicas con el mismo perfil de mástil fácil de tocar que se encuentra en todos los demás modelos de diseño clásico. El CN-60S también cuenta con una parte superior de abeto sólido, parte posterior y laterales de caoba y bordes de diapasón enrollados.' },
+    { id: 31, model: 'FA-15N 3/4 NYLON', brand: 'Fender', category: 'criolla', bodyMaterial: 'Caoba', price: 179, stock: 8, quantity: 0, image: 'multimedia/imagenes/fender-classical-2.jpg', detail: 'La guitarra FA-15N de cuerdas de nylon de 3/4 de tamaño ofrece un instrumento visualmente impresionante a un precio económico. La construcción laminada de calidad con un moderno cabezal Fender 3 + 3 y un puente de nogal crean un instrumento que no solo es fácil de tocar, sino que también suena muy bien. Los principiantes y los jugadores en desarrollo apreciarán el estilo de esta guitarra, que cuenta con un mástil de caoba que le da a la guitarra un tono y una sensación animados.' },
+    { id: 32, model: 'GA35TCE', brand: 'Ibanez', category: 'criolla', bodyMaterial: 'Sapele', price: 379, stock: 7, quantity: 0, image: 'multimedia/imagenes/ibanez-classical-1.png', detail: 'El preamplificador AEQ210T proporciona el golpe adicional de un ecualizador integrado y la comodidad de un sintonizador digital fácil de leer. El cuello Nyatoh proporciona un rico extremo medio-bajo.' },
+    { id: 33, model: 'GA6CE', brand: 'Ibanez', category: 'criolla', bodyMaterial: 'Sapele', price: 289, stock: 4, quantity: 0, image: 'multimedia/imagenes/ibanez-classical-2.png', detail: 'El preamplificador AEQ-2T está diseñado específicamente para ajustar las frecuencias de los graves y agudos, y permite el funcionamiento del sintonizador incorporado sin que el instrumento esté enchufado. Purpleheart produce una rica gama media con una gama alta nítida. ' },
+    { id: 34, model: 'GA5TCE', brand: 'Ibanez', category: 'criolla', bodyMaterial: 'Sapele', price: 439, stock: 3, quantity: 0, image: 'multimedia/imagenes/ibanez-classical-3.png', detail: 'El preamplificador AEQ-2T está diseñado específicamente para ajustar las frecuencias de los graves y agudos, y permite el funcionamiento del sintonizador incorporado sin que el instrumento esté enchufado. Purpleheart produce una rica gama media con una gama alta nítida.' }
 ];
-
-// Arrays for filters
-const fender = products.filter((product) => product.brand.includes('Fender'));
-const gibson = products.filter((product) => product.brand.includes('Gibson'));
-const ibanez = products.filter((product) => product.brand.includes('Ibanez'));
-const jackson = products.filter((product) => product.brand.includes('Jackson'));
-const takamine = products.filter((product) => product.brand.includes('Takamine'));
-const aliso = products.filter((product) => product.bodyMaterial.includes('Aliso'));
-const arce = products.filter((product) => product.bodyMaterial.includes('Arce'));
-const caoba = products.filter((product) => product.bodyMaterial.includes('Caoba'));
-const maple = products.filter((product) => product.bodyMaterial.includes('Maple'));
-const okoume = products.filter((product) => product.bodyMaterial.includes('Okoume'));
-const sapele = products.filter((product) => product.bodyMaterial.includes('Sapele'));
-const acoustics = products.filter((product) => product.category.includes('acustica'));
-const classics = products.filter((product) => product.category.includes('criolla'));
-const electrics = products.filter((product) => product.category.includes('electrica'));
 
 /***************************************************/
 /******************** Functions ********************/
@@ -84,52 +68,9 @@ const addToCart = (idProduct) => {
     };
 };
 
-// función flecha que escribe las cards en el sitio indicado del html
-const showCards = (cards) => document.getElementById("products-container").innerHTML = cards;
-
-// llamado a la función para generar las cards
-cardGenerator(products);
-
-// Cards generator
-function cardGenerator(productsToShow) {
-    // fetch para pasar el valor de los productos a pesos en las cards generadas en la seccion de productos 
-    fetch('https://api.bluelytics.com.ar/v2/latest')
-        .then((response) => response.json())
-        .then((data) => {
-            let dolarPrice = data.blue.value_sell;
-            let cardAcumulator = '';
-            productsToShow.forEach((productArray) => {
-                cardAcumulator += `<div class="col-products col mb-5">
-                <div class="card h-100 rounded">
-                    <!-- Product image -->
-                    <div class="d-flex justify-content-center mt-3">
-                    <img class="card-img-top w-50" src="${productArray.image}" alt="Guitarra ${productArray.model}"/>
-                    </div>
-                    <!-- Product details-->
-                    <div class="card-body">
-                        <div class="text-center">
-                            <!-- Product model -->
-                            <h5 class="fw-bolder">${productArray.brand} <br>${productArray.model}</br></h5>
-                            <!-- Product material -->
-                            <p>Cuerpo de ${productArray.bodyMaterial}</p>
-                        </div>
-                    </div>
-                    <!-- Product actions -->
-                    <div class="card-footer mb-3 border-top-0 bg-transparent">
-                        <div class="text-center">
-                        <!-- Product price -->
-                            <p>$ ${Math.round(dolarPrice * productArray.price)}</p>
-                            <button onclick="addToCart(${productArray.id})" class="btn btn-dark" style="background-color: rgba(39, 30, 30, 0.808);">
-                                ${(productArray.stock <= 0) ? 'Sin Stock' : 'Agregar al Carrito'}
-                            </button>
-                            <input min="1" type="number" id="quantity-${productArray.id}"  placeholder="Cantidad" style="width: 5.2rem;" class="mt-2">
-                        </div>
-                    </div>
-                </div>
-            </div>`
-            });
-            showCards(cardAcumulator);
-        });
+function productDetail(idProduct) {
+    productToShowDetail = products.find(product => product.id === idProduct);
+    localStorage.setItem('productToShowDetail', JSON.stringify(productToShowDetail));
 };
 
 // SweetAlert choose quantity
@@ -190,72 +131,3 @@ function addedToCartToastify(product) {
     }).showToast();
 };
 
-// Functions Filter
-let productsToOrder = 0 || products;
-
-function filterButtons(productsFiltered) { 
-    productsToOrder = productsFiltered;
-    cardGenerator(productsFiltered);
-    document.getElementById("style-order").innerHTML = '';
-};
-
-function filterBrand(productsFiltered) {
-    filterButtons(productsFiltered);
-    document.getElementById("tittle-products-to-show").innerHTML = `Guitarras marca ${productsFiltered[0].brand}`; 
-}; 
-
-function filterBodyMaterial(productsFiltered) {
-    filterButtons(productsFiltered);
-    document.getElementById("tittle-products-to-show").innerHTML = `Guitarras con cuerpo de  ${productsFiltered[0].bodyMaterial}`;
-};
-
-function filterCategory(productsFiltered) {
-    filterButtons(productsFiltered);
-    document.getElementById("tittle-products-to-show").innerHTML = `Guitarras ${productsFiltered[0].category}s`;
-};
-
-function cleanFilters() {
-    filterButtons(products);
-    document.getElementById("tittle-products-to-show").innerHTML = 'Todas nuestras guitarras'; 
-};
-
-// Input search results
-function productToFind() {
-    const inputContent = document.getElementById("product-to-find").value.toUpperCase().trim();
-    const findedProducts = products.filter((product) => {
-        return ((product.model + product.brand + product.bodyMaterial + product.category).toUpperCase().match(inputContent));
-    });
-    if (inputContent != '') {
-        document.getElementById("tittle-products-to-show").innerHTML = `Resultados que coinciden con "${inputContent}"`;
-        filterButtons(findedProducts);
-    } else {
-        document.getElementById("tittle-products-to-show").innerHTML = `Debes ingresar un valor de búsqueda`;
-        cardGenerator([]);
-    };
-};
-
-// Functions order products by price
-function orderProducts() {
-    const order = productsToOrder.sort(function (a,b) {
-        if (a.price > b.price) {
-            return 1;
-        }
-        if (a.price < b.price) {
-            return -1;
-        }
-        return 0;
-    });
-    return order;
-}
-
-function orderByLowerPrice() { 
-    const lowerPrice = orderProducts()
-    cardGenerator(lowerPrice);
-    document.getElementById("style-order").innerHTML = 'Ordenadas por menor precio';
-};
-
-function orderByHigherPrice() {
-    const lowerPrice = orderProducts()
-    cardGenerator(lowerPrice.reverse());
-    document.getElementById("style-order").innerHTML = 'Ordenadas por mayor precio'; 
-};

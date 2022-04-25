@@ -7,23 +7,8 @@ const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 cartData();
 
-// Total Price of Cart
-function cartPrice() {
-    // fetch para pasar el total del carrito a pesos argentinos
-    fetch('https://api.bluelytics.com.ar/v2/latest')
-        .then((response) => response.json())
-        .then((data) => {   
-            let dolarPrice = data.blue.value_sell;
-            const totalCartPrice = cart.reduce((acc, productToAdd) => ( acc + (productToAdd.quantity * productToAdd.price) ), 0);
-            document.getElementById("total-price").innerHTML = `$ ${Math.round(dolarPrice * totalCartPrice)}`;
-        });
-};
-
-// Total Items of Cart
-function cartItemsQuantity() {
-    const cartQuantity = cart.reduce((acc, productToAdd) => (acc + productToAdd.quantity), 0);
-    document.getElementById("cart-quantity").innerHTML = cartQuantity;
-};
+// función flecha que escribe las cards del carrito en el sitio indicado del html
+const showCardsOfCart = (cards) => document.getElementById("modal-card").innerHTML = cards;
 
 // Card generator of Cart
 function cardGeneratorOfCart(productsOfCart) {
@@ -73,11 +58,24 @@ function cardGeneratorOfCart(productsOfCart) {
         });
 };
 
-function showCardsOfCart(cards) {
-    document.getElementById("modal-card").innerHTML = cards;
+// Total Price of Cart
+function cartPrice() {
+    // fetch para pasar el total del carrito a pesos argentinos
+    fetch('https://api.bluelytics.com.ar/v2/latest')
+        .then((response) => response.json())
+        .then((data) => {   
+            let dolarPrice = data.blue.value_sell;
+            const totalCartPrice = cart.reduce((acc, productToAdd) => ( acc + (productToAdd.quantity * productToAdd.price) ), 0);
+            document.getElementById("total-price").innerHTML = `$ ${Math.round(dolarPrice * totalCartPrice)}`;
+        });
 };
-    
-    
+
+// Total Items of Cart
+function cartItemsQuantity() {
+    const cartQuantity = cart.reduce((acc, productToAdd) => (acc + productToAdd.quantity), 0);
+    document.getElementById("cart-quantity").innerHTML = cartQuantity;
+};
+
 // Se realizaron funciones para reducir lineas de codigo en otras funciones que comparten funcionalidades y para que sea escalable
 function cartData() {
     cartPrice();
@@ -119,7 +117,7 @@ function removeOneProduct(idProduct) {
 function addOneProduct(idProduct) {
     const productToAdd = cart.find(product => product.id === idProduct);
     // Se aplico if ternario
-    productToAdd.stock != 0 ? cartDataStorageProductAdded(productToAdd) : outOfStockButtonCart(productToAdd);
+    productToAdd.stock != 0 ? cartDataStorageProductAdded(productToAdd) : outOfStockButtonCart(productToAdd)
 };
 
 // SweetAlert out of stock on button of cart
@@ -147,12 +145,21 @@ function removeProductFromCartToastify(product) {
 };
 
 //SweetAlert shopping confirm
-function shoppingConfirm() {
+const shoppingConfirm = () => cart != '' ? shoppingConfirmSucces() : shoppingConfirmError()
+
+function shoppingConfirmSucces() {
     swal({
         icon: 'success',
         title: 'Felicitaciones! Confirmaste tu compra!',
         text: `Te redireccionaremos a la plataforma de pago! Muchas gracias por confiar en TuCuerda!`,
         buttons: 'Continuar con el Pago'
-    })
+    });
 };
 
+function shoppingConfirmError() {
+    swal({
+        icon: 'error',
+        title: 'Oops!',
+        text: `El carrito está vacío!`
+    });
+};

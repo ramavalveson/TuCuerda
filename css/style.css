@@ -39,6 +39,13 @@ header nav div .seccionesContainer a:hover {
   transform: translateY(1rem);
   transition: all 0.5s;
 }
+header nav div .seccionesContainer p {
+  color: #fff;
+  font-family: "Monoton", cursive;
+  text-align: center;
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+}
 header nav div .cart-icon .cart-button:hover {
   transform: scale(105%);
   transition: all 0.5s;
@@ -263,6 +270,16 @@ footer .gridContainer .nosotros {
 footer .gridContainer .ig {
   grid-area: ig;
 }
+footer .gridContainer .ig a {
+  width: 50%;
+}
+footer .gridContainer .ig a:hover {
+  transform: scale(110%) rotateY(360deg);
+  transition: all 1s;
+}
+footer .gridContainer .ig a img {
+  width: 100%;
+}
 footer .gridContainer .mail {
   grid-area: mail;
   width: 50%;
@@ -273,11 +290,31 @@ footer .gridContainer .textoNosotros {
 footer .gridContainer .face {
   grid-area: face;
 }
+footer .gridContainer .face a {
+  width: 50%;
+}
+footer .gridContainer .face a:hover {
+  transform: scale(110%) rotateY(360deg);
+  transition: all 1s;
+}
+footer .gridContainer .face a img {
+  width: 100%;
+}
 footer .gridContainer .whatsapp {
   grid-area: whatsapp;
 }
 footer .gridContainer .tw {
   grid-area: tw;
+}
+footer .gridContainer .tw a {
+  width: 50%;
+}
+footer .gridContainer .tw a:hover {
+  transform: scale(110%) rotateY(360deg);
+  transition: all 1s;
+}
+footer .gridContainer .tw a img {
+  width: 100%;
 }
 footer .gridContainer .ubicacion {
   grid-area: ubicacion;

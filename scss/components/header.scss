@@ -41,6 +41,13 @@ header {
                         transition: all 0.5s;
                     }
                 }
+                p {
+                    color: $colorSecundario;
+                    font-family: $fontLogo;
+                    text-align: center;
+                    font-size: 1.5rem;
+                    letter-spacing: 0.1rem;
+                }
             }
             .cart-icon {
                 .cart-button {

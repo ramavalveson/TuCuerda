@@ -30,6 +30,16 @@ footer {
         
         .ig {
             grid-area: ig;
+            a {
+                width: 50%;
+                &:hover {
+                    transform: scale(110%) rotateY(360deg);
+                    transition: all 1s;
+                }
+                img {
+                    width: 100%;
+                }
+            }
         }
         
         .mail {
@@ -43,6 +53,16 @@ footer {
         
         .face {
             grid-area: face;
+            a {
+                width: 50%;
+                &:hover {
+                    transform: scale(110%) rotateY(360deg);
+                    transition: all 1s;
+                }
+                img {
+                    width: 100%;
+                }
+            }
         }
         
         .whatsapp {
@@ -51,6 +71,16 @@ footer {
         
         .tw {
             grid-area: tw;
+            a {
+                width: 50%;
+                &:hover {
+                    transform: scale(110%) rotateY(360deg);
+                    transition: all 1s;
+                }
+                img {
+                    width: 100%;
+                }
+            }
         }
         
         .ubicacion {
