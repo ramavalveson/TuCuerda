@@ -5,11 +5,10 @@
 }
 
 header nav {
-  background-color: rgba(39, 30, 30, 0.808);
+  background-color: rgba(39, 30, 30, 0.9);
 }
 header nav div .logoContainer {
-  background-color: #fff;
-  border-radius: 100%;
+  background-color: rgba(39, 30, 30, 0.9);
 }
 header nav div .logoContainer:hover {
   transform: scale(102%);
@@ -17,7 +16,7 @@ header nav div .logoContainer:hover {
 }
 header nav div .logoContainer .imgLogo {
   margin: 0% auto;
-  width: 100%;
+  width: 70%;
 }
 header nav div .logoContainer .imgLogo a img {
   width: 100%;
@@ -71,7 +70,7 @@ header nav div .cart-modal div div .modal-footer p #total-price {
   font-weight: bold;
 }
 header nav div .cart-modal div div .modal-footer button {
-  background-color: rgba(39, 30, 30, 0.808);
+  background-color: rgba(39, 30, 30, 0.9);
 }
 header nav div .cart-modal div div .modal-footer button:hover {
   transform: scale(105%);
@@ -139,7 +138,7 @@ h1 {
 }
 
 .offcanvas-container {
-  background-color: rgba(39, 30, 30, 0.808);
+  background-color: rgba(39, 30, 30, 0.9);
   border: solid 0.2rem #fff;
   border-radius: 10%;
   position: fixed;
@@ -165,7 +164,7 @@ h1 {
 }
 .offcanvas-container .offcanvas .offcanvas-body div .filter-button {
   width: 30%;
-  background-color: rgba(39, 30, 30, 0.808);
+  background-color: rgba(39, 30, 30, 0.9);
 }
 .offcanvas-container .offcanvas .offcanvas-body div .filter-button:hover {
   transform: scale(105%);
@@ -178,14 +177,14 @@ h1 {
   font-size: 0.9rem;
 }
 .offcanvas-container .offcanvas .offcanvas-body div ul .item-dropdown:hover {
-  background-color: rgba(39, 30, 30, 0.808);
+  background-color: rgba(39, 30, 30, 0.9);
   color: #fff;
 }
 .offcanvas-container .offcanvas .offcanvas-body .classify-products p {
   width: 34%;
   text-align: center;
   font-size: 1rem;
-  background-color: rgba(39, 30, 30, 0.808);
+  background-color: rgba(39, 30, 30, 0.9);
   color: #fff;
   padding: 0.5rem 0.75rem;
   border-radius: 0.25rem;
@@ -201,7 +200,7 @@ h1 {
   transform: scale(120%);
 }
 .offcanvas-container .offcanvas .offcanvas-body .input-search-container button {
-  background-color: rgba(39, 30, 30, 0.808);
+  background-color: rgba(39, 30, 30, 0.9);
 }
 .offcanvas-container .offcanvas .offcanvas-body .input-search-container button:hover {
   transform: scale(105%);
@@ -222,7 +221,7 @@ h1 {
 }
 
 #to-top {
-  background-color: rgba(39, 30, 30, 0.808);
+  background-color: rgba(39, 30, 30, 0.9);
   border: solid 0.2rem #fff;
   border-radius: 10%;
   position: fixed;
@@ -246,7 +245,7 @@ h1 {
 }
 
 footer {
-  background-color: rgba(39, 30, 30, 0.808);
+  background-color: rgba(39, 30, 30, 0.9);
   padding: 2%;
 }
 footer .gridContainer {
@@ -282,7 +281,9 @@ footer .gridContainer .ig a img {
 }
 footer .gridContainer .mail {
   grid-area: mail;
-  width: 50%;
+}
+footer .gridContainer .mail img {
+  width: 25%;
 }
 footer .gridContainer .textoNosotros {
   grid-area: textoNosotros;
@@ -302,6 +303,10 @@ footer .gridContainer .face a img {
 }
 footer .gridContainer .whatsapp {
   grid-area: whatsapp;
+  margin-left: 2%;
+}
+footer .gridContainer .whatsapp img {
+  width: 20%;
 }
 footer .gridContainer .tw {
   grid-area: tw;
@@ -318,7 +323,10 @@ footer .gridContainer .tw a img {
 }
 footer .gridContainer .ubicacion {
   grid-area: ubicacion;
-  margin-left: 3%;
+  margin-left: 5%;
+}
+footer .gridContainer .ubicacion img {
+  width: 15%;
 }
 footer .gridContainer .titulo {
   font-size: 1.5rem;
@@ -329,7 +337,7 @@ footer .gridContainer .textContacto {
 
 body {
   background-image: url("../multimedia/imagenes/background.jpg");
-  background-repeat: repeat-y;
+  background-repeat: repeat-y repeat-x;
 }
 body a {
   text-decoration: none;

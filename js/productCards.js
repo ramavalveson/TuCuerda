@@ -1,8 +1,8 @@
 // función flecha que escribe las cards de productos en el sitio indicado del html
 const showCards = (cards) => document.getElementById("products-container").innerHTML = cards;
-
+const productsFilter = JSON.parse(localStorage.getItem('productsToOrder')) || products
 // llamado a la función para generar las cards
-cardGenerator(products);
+cardGenerator(productsFilter);
 
 // Cards generator
 function cardGenerator(productsToShow) {

@@ -44,7 +44,9 @@ footer {
         
         .mail {
             grid-area: mail;
-            width: 50%;
+            img {
+                width: 25%;
+            }
         }
         
         .textoNosotros {
@@ -67,6 +69,11 @@ footer {
         
         .whatsapp {
             grid-area: whatsapp;
+            margin-left: 2%;
+
+            img {
+                width: 20%;
+            }
         }
         
         .tw {
@@ -85,7 +92,10 @@ footer {
         
         .ubicacion {
             grid-area: ubicacion;
-            margin-left: 3%;
+            margin-left: 5%;
+            img {
+                width: 15%;
+            }
         }
 
         .titulo {
